@@ -92,4 +92,4 @@ python "%USERPROFILE%\.codebuddy\plugins\marketplaces\codebuddy-plugins-official
 |---|---|
 | ← 要求 | `01_requirements/report_requirements.txt`（6 项要求）、`requirement_summary.md`（约束 CON-1～CON-8） |
 | ← 素材 | `02_ai_chats/`（§1、§2、§5）、`03_code/`（§3、§6）、`04_data/`（§4.1）、`05_results/`（§4 与图 1–4） |
-| → 提交 | `07_submission/`（T10：合规与相似度自查后通过 UMMoodle 提交） |
+| → 提交 | `07_submission/` |
