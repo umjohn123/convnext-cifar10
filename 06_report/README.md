@@ -10,9 +10,9 @@
 
 | 文件 | 大小 | 说明 |
 |---|---|---|
-| `AIassign2_Report_ConvNeXt_CIFAR10.docx` | 549 KB | **正式交付件（Word）**：22 页、约 7,300 词、13 张表、4 张图，目录（TOC）域已由 Word 更新填充 |
-| `AIassign2_Report_ConvNeXt_CIFAR10.pdf` | 780 KB | 同一内容的 **PDF 版本**（提交允许 Word 或 PDF，二者任选其一） |
-| `report_builder/build_report.js` | 59 KB | **生成脚本**（docx-js）：报告全部内容与排版均由该脚本生成，可一键重建 |
+| `AIassign2_Report_ConvNeXt_CIFAR10.docx` | 544 KB | **正式交付件（Word）**：20 页、约 7,300 词、13 张表、4 张图，目录（TOC）域已由 Word 更新填充 |
+| `AIassign2_Report_ConvNeXt_CIFAR10.pdf` | 851 KB | 同一内容的 **PDF 版本**（提交允许 Word 或 PDF，二者任选其一） |
+| `report_builder/build_report.js` | 59 KB | 早期生成脚本（docx-js）：**已与当前 docx 不同步**——封面精简、去 AI 化改写、公式排版、附录删减等后续修改均直接在 docx 上完成，未回写该脚本 |
 
 > 报告语言为**英文**（作业要求 **CON-5**），排版规格：US Letter、1 英寸页边距、Arial 正文 11 pt，
 > 页眉写明作业与算法，页脚为 "Page X of Y"。已通过 OOXML 校验（`All validations PASSED`，595 段落）。
@@ -30,10 +30,9 @@
 | (3) how AI implements the algorithm | **§3**（协作协议、工程结构表、关键工程决策、验证清单、三个真实硬件问题及其修复、可复现措施） | `03_code/README.md`、05_results 的日志与检查点 |
 | (4) experiment settings and results | **§4**（数据结构、设置表、主结果表、逐类结果与误差分析、训练行为、fp16 对照实验、CPU 基线、讨论与局限） | `05_results/full_convnext_tiny_cifar10/`、`05_results/mvp_atto_subset5k/`、`05_results/_failed_runs/` |
 | (5) what you have learnt | **§5**（6 个小节：AI 与人工验证的分工、数值精度、平台差异、可复现性、提问方法、下次改进） | 全过程复盘、`02_ai_chats/ai_collaboration_plan.md` |
-| (6) a webpage link of your source codes | **§6**（仓库链接 + 目录说明 + 运行命令） | `03_code/`；**链接占位符需人工替换（见第 4 节）** |
+| (6) a webpage link of your source codes | **§6**（仓库链接 + 目录说明 + 运行命令） | `03_code/`；链接已发布：https://github.com/umjohn123/convnext-cifar10 |
 
-另附 **References**（8 条：ConvNeXt 论文与官方实现、CIFAR-10、Mixup、CutMix、DropPath、AdamW、PyTorch 文档）与
-**Appendix A/B/C**（产物索引、复现命令、AI 生成代码的证据索引）。
+另附 **References**（13 条：ConvNeXt 论文与官方实现、CIFAR-10、Mixup、CutMix、DropPath、AdamW、PyTorch 文档等）。
 
 ---
 
@@ -54,15 +53,14 @@
 
 ---
 
-## 4. 提交前待办（**重要，仅剩人工步骤**）
+## 4. 提交前检查（已完成项与剩余步骤）
 
-| # | 待办 | 位置 | 说明 |
+| # | 项目 | 位置 | 状态 |
 |---|---|---|---|
-| 1 | 填写**姓名与学号** | 报告第 1 页信息表 "Author" 行（当前为 `<student name> (<student ID>)`） | 生成脚本中对应 `CONTENT.push(table(...))` 的 Author 行 |
-| 2 | 替换**源码仓库链接** | 报告 §6（当前为红色占位符 `[ Repository URL — ... ]`） | 作业硬性要求（CON-7）；需先托管到 GitHub/Gitee 等，再把真实链接填入 |
-| 3 | 更新目录（Word 打开时会自动更新；PDF 已更新） | 报告第 2 页 | 修改上述两处后重新导出 PDF 即可 |
-| 4 | （可选）补充对话界面截图 | 报告 §1/§3 证据 | 截图放入 `02_ai_chats/screenshots/` 后可在 Appendix C 中引用 |
-| 5 | （可选）Turnitin 自查与提交 | `07_submission/` | 作业要求经 UMMoodle 提交并通过相似度检测 |
+| 1 | 填写**姓名与学号** | 报告第 1 页 "Author" 行 | ✅ 已完成：`<Chao Wen Jie > (<UC325315>)` |
+| 2 | 替换**源码仓库链接** | 报告 §6 | ✅ 已完成：https://github.com/umjohn123/convnext-cifar10（PDF 中为可点击链接） |
+| 3 | 更新目录 | 报告第 2 页 | ✅ 已完成：目录域已刷新，页码与正文一致 |
+| 4 | Turnitin 自查与提交 | `07_submission/` | 作业要求经 UMMoodle 提交并通过相似度检测 |
 
 ---
 

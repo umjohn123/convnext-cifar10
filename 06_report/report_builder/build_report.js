@@ -566,7 +566,7 @@ CONTENT.push(
   table([
     ["Folder", "Key contents", "Used in"],
     ["`01_requirements/`", "Assignment statement, requirement summary, task breakdown", "Section 1"],
-    ["`02_ai_chats/`", "Algorithm search dialogue (5 rounds), candidate list, algorithm profile, iteration summary, screenshots", "Sections 1, 2, 5"],
+    ["`02_ai_chats/`", "Algorithm search dialogue (5 rounds), candidate list, algorithm profile, iteration summary", "Sections 1, 2, 5"],
     ["`03_code/`", "24 Python source files, Colab notebook generator, download accelerator, requirements", "Section 3"],
     ["`04_data/`", "Dataset description, split index files, raw archive", "Section 4.1"],
     ["`05_results/full_convnext_tiny_cifar10/`", "4 figures, training and evaluation logs, history CSV/JSON, 2 checkpoints, 5 metric files, 5 index documents", "Section 4 and Figures 1–4"],
@@ -599,7 +599,6 @@ CONTENT.push(
     ["Sources embedded in the generated notebook, verbatim self-check", "`03_code/notebooks/`", "Report item 3: the code base was generated as a whole and stays consistent"],
     ["Per-epoch metrics, training logs, checkpoints, figures", "`05_results/full_convnext_tiny_cifar10/`", "Report item 4: experiment settings and results"],
     ["Failure diagnosis of the fp16 run (loss scale, optimiser moments)", "`05_results/_failed_runs/full_convnext_tiny_cifar10_amp_fp16_underflow/`", "Sections 3.5 and 4.6: verification discipline"],
-    ["Dialogue interface screenshots", "`02_ai_chats/screenshots/`", "Report items 1, 2 and 3: the dialogues really took place"],
   ], [3200, 3400, 2760]),
 );
 
