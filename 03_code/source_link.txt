@@ -1,0 +1,1 @@
+https://github.com/umjohn123/convnext-cifar10
