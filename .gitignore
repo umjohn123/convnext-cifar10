@@ -6,6 +6,9 @@
 # ---- Local tooling / workspace state ----
 .workbuddy-ai/
 
+# ---- Kept locally only (not published) ----
+07_submission/
+
 # ---- Python / notebook noise ----
 __pycache__/
 *.py[cod]
