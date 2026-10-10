@@ -1,0 +1,85 @@
+[10:19:51] INFO  | ================================================================================================
+[10:19:51] INFO  | 实验名称：mvp_atto_subset5k
+[10:19:51] INFO  | 输出目录：D:\Document\workbuddy-ai\CISC3024PRAI\Assignment2\05_results
+[10:19:51] INFO  | ================================================================================================
+[10:19:51] INFO  | [device] CPU
+[10:19:51] INFO  | [seed] 全局随机种子 = 42 | 确定性模式 = False
+[10:19:51] INFO  | [batch-size] 设备为 cpu，无显存限制，使用 batch size = 128
+[10:19:59] WARNING | [data] 已启用『快速验证子集』模式：训练池 5000 / 原 50000 张，测试集 2000 / 原 10000 张。该模式下的指标**不能**与全量数据结果直接比较，仅用于快速验证流程。
+[10:19:59] INFO  | [data] CIFAR-10 划分完成 | 训练 4500 张 | 验证 500 张 | 测试 2000 张 | 类别数 10
+[10:19:59] INFO  | [data] DataLoader | train batch=128 | eval batch=256 | num_workers=0 | pin_memory=False
+[10:20:01] INFO  | [figures] 数据样例图已保存：../05_results\figures\data_samples.png
+[10:20:01] INFO  | [model] 结构摘要：
+[10:20:01] INFO  |     ConvNeXt-atto | stem=conv | drop_path=0.1
+[10:20:01] INFO  |       input            : 3 x 32 x 32
+[10:20:01] INFO  |       stage 1          : 32 x 32 x 40   | blocks=2
+[10:20:01] INFO  |       stage 2          : 16 x 16 x 80   | blocks=2
+[10:20:01] INFO  |       stage 3          :  8 x  8 x 160  | blocks=6
+[10:20:01] INFO  |       stage 4          :  4 x  4 x 320  | blocks=2
+[10:20:01] INFO  |       head             : global average pool -> Linear(320 -> 10)
+[10:20:01] INFO  | [model] 总参数量 = 3.38 M（3,376,890）| 可训练参数量 = 3.38 M
+[10:20:01] INFO  | ================================================================================================
+[10:20:01] INFO  | 开始训练：epochs=10（本轮从 epoch 1 开始）| batch_size=128 x accum=1 (等效 batch=128)
+[10:20:01] INFO  | 优化器=AdamW(lr=0.002, wd=0.05) | 调度=warmup(2) + cosine -> 1e-05 | AMP=False | Mixup/CutMix=False | 参数量=3.38M
+[10:20:01] INFO  | ================================================================================================
+[10:20:01] INFO  | [Epoch 1/10] lr=1.000e-03
+[10:22:06] INFO  |   epoch   1 | step   36/36 | loss 2.1323 | acc 22.71% | lr 1.00e-03 | 已用时 2m 04s
+[10:22:08] INFO  | [Epoch 1/10] 完成 | train_loss=2.1323 train_acc=22.71% | val_loss=2.0975 val_top1=27.00% val_top5=76.60% | 用时 2m 04s
+[10:22:09] INFO  |   -> 刷新最优验证准确率：27.00%（已保存 best.pt）
+[10:22:09] INFO  | [Epoch 2/10] lr=2.000e-03
+[10:23:43] INFO  |   epoch   2 | step   36/36 | loss 2.0701 | acc 25.93% | lr 2.00e-03 | 已用时 1m 35s
+[10:23:46] INFO  | [Epoch 2/10] 完成 | train_loss=2.0701 train_acc=25.93% | val_loss=2.0574 val_top1=25.60% val_top5=80.60% | 用时 1m 35s
+[10:23:48] INFO  | [Epoch 3/10] lr=2.000e-03
+[10:25:30] INFO  |   epoch   3 | step   36/36 | loss 1.9993 | acc 29.02% | lr 2.00e-03 | 已用时 1m 42s
+[10:25:33] INFO  | [Epoch 3/10] 完成 | train_loss=1.9993 train_acc=29.02% | val_loss=1.9912 val_top1=32.20% val_top5=82.00% | 用时 1m 42s
+[10:25:33] INFO  |   -> 刷新最优验证准确率：32.20%（已保存 best.pt）
+[10:25:33] INFO  | [Epoch 4/10] lr=1.924e-03
+[10:26:55] INFO  |   epoch   4 | step   36/36 | loss 1.9602 | acc 30.84% | lr 1.92e-03 | 已用时 1m 22s
+[10:26:57] INFO  | [Epoch 4/10] 完成 | train_loss=1.9602 train_acc=30.84% | val_loss=1.9618 val_top1=30.60% val_top5=83.80% | 用时 1m 22s
+[10:26:58] INFO  | [Epoch 5/10] lr=1.709e-03
+[10:28:10] INFO  |   epoch   5 | step   36/36 | loss 1.8941 | acc 34.82% | lr 1.71e-03 | 已用时 1m 12s
+[10:28:13] INFO  | [Epoch 5/10] 完成 | train_loss=1.8941 train_acc=34.82% | val_loss=1.9328 val_top1=34.40% val_top5=82.40% | 用时 1m 12s
+[10:28:13] INFO  |   -> 刷新最优验证准确率：34.40%（已保存 best.pt）
+[10:28:13] INFO  | [Epoch 6/10] lr=1.386e-03
+[10:29:29] INFO  |   epoch   6 | step   36/36 | loss 1.8351 | acc 38.84% | lr 1.39e-03 | 已用时 1m 16s
+[10:29:32] INFO  | [Epoch 6/10] 完成 | train_loss=1.8351 train_acc=38.84% | val_loss=1.8498 val_top1=41.40% val_top5=84.20% | 用时 1m 16s
+[10:29:32] INFO  |   -> 刷新最优验证准确率：41.40%（已保存 best.pt）
+[10:29:33] INFO  | [Epoch 7/10] lr=1.005e-03
+[10:31:12] INFO  |   epoch   7 | step   36/36 | loss 1.7793 | acc 40.93% | lr 1.00e-03 | 已用时 1m 39s
+[10:31:15] INFO  | [Epoch 7/10] 完成 | train_loss=1.7793 train_acc=40.93% | val_loss=1.8096 val_top1=42.40% val_top5=86.40% | 用时 1m 39s
+[10:31:15] INFO  |   -> 刷新最优验证准确率：42.40%（已保存 best.pt）
+[10:31:15] INFO  | [Epoch 8/10] lr=6.242e-04
+[10:32:57] INFO  |   epoch   8 | step   36/36 | loss 1.7424 | acc 42.51% | lr 6.24e-04 | 已用时 1m 42s
+[10:33:00] INFO  | [Epoch 8/10] 完成 | train_loss=1.7424 train_acc=42.51% | val_loss=1.7899 val_top1=43.60% val_top5=86.60% | 用时 1m 42s
+[10:33:01] INFO  |   -> 刷新最优验证准确率：43.60%（已保存 best.pt）
+[10:33:02] INFO  | [Epoch 9/10] lr=3.014e-04
+[10:34:59] INFO  |   epoch   9 | step   36/36 | loss 1.7032 | acc 43.89% | lr 3.01e-04 | 已用时 1m 57s
+[10:35:03] INFO  | [Epoch 9/10] 完成 | train_loss=1.7032 train_acc=43.89% | val_loss=1.7491 val_top1=45.00% val_top5=87.80% | 用时 1m 57s
+[10:35:03] INFO  |   -> 刷新最优验证准确率：45.00%（已保存 best.pt）
+[10:35:03] INFO  | [Epoch 10/10] lr=8.574e-05
+[10:37:44] INFO  |   epoch  10 | step   36/36 | loss 1.6784 | acc 45.18% | lr 8.57e-05 | 已用时 2m 42s
+[10:37:49] INFO  | [Epoch 10/10] 完成 | train_loss=1.6784 train_acc=45.18% | val_loss=1.7467 val_top1=45.20% val_top5=87.60% | 用时 2m 42s
+[10:37:49] INFO  |   -> 刷新最优验证准确率：45.20%（已保存 best.pt）
+[10:37:52] INFO  | 训练结束 | 历史最优验证准确率 = 45.20%（epoch 10）| 曲线已保存至 ../05_results\figures\training_curves.png
+[10:37:52] INFO  | ================================================================================================
+[10:37:52] INFO  | 开始在**测试集**上评估验证集最优模型（best.pt）……
+[10:37:52] INFO  | [evaluate] 已载入 ../05_results\models\best.pt（对应 epoch 10）
+[10:38:11] INFO  | [test] loss=1.6696 | Top-1 = 45.05% | Top-5 = 89.95% | 样本数 = 2000
+[10:38:30] INFO  | 逐类准确率（测试集）：
+[10:38:30] INFO  |     airplane   :  54.24%  (支撑样本 177 张)
+[10:38:30] INFO  |     automobile :  57.47%  (支撑样本 221 张)
+[10:38:30] INFO  |     bird       :  24.34%  (支撑样本 189 张)
+[10:38:30] INFO  |     cat        :  28.37%  (支撑样本 208 张)
+[10:38:30] INFO  |     deer       :  27.32%  (支撑样本 194 张)
+[10:38:30] INFO  |     dog        :  32.16%  (支撑样本 199 张)
+[10:38:30] INFO  |     frog       :  48.40%  (支撑样本 188 张)
+[10:38:30] INFO  |     horse      :  59.09%  (支撑样本 198 张)
+[10:38:30] INFO  |     ship       :  61.50%  (支撑样本 213 张)
+[10:38:30] INFO  |     truck      :  54.93%  (支撑样本 213 张)
+[10:38:30] INFO  | 宏平均（各类准确率均值）：44.78%
+[10:38:33] INFO  | ================================================================================================
+[10:38:33] INFO  | 全部完成！总耗时 18m 41s
+[10:38:33] INFO  | 最终测试集 Top-1 准确率：45.05%
+[10:38:33] INFO  | 结果文件：D:\Document\workbuddy-ai\CISC3024PRAI\Assignment2\05_results\metrics
+[10:38:33] INFO  | 图表文件：D:\Document\workbuddy-ai\CISC3024PRAI\Assignment2\05_results\figures
+[10:38:33] INFO  | ================================================================================================

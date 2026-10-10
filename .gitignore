@@ -1,0 +1,21 @@
+# ---- Large artefacts: not committed (see README for how to obtain them) ----
+*.pt
+*.zip
+04_data/cifar10/
+
+# ---- Local tooling / workspace state ----
+.workbuddy-ai/
+
+# ---- Python / notebook noise ----
+__pycache__/
+*.py[cod]
+.ipynb_checkpoints/
+*.egg-info/
+.pytest_cache/
+
+# ---- OS / editor noise ----
+.DS_Store
+Thumbs.db
+desktop.ini
+.vscode/
+.idea/

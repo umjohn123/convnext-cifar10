@@ -1,0 +1,52 @@
+{
+  "experiment": "mvp_atto_subset5k",
+  "algorithm": "ConvNeXt (A ConvNet for the 2020s, CVPR 2022; arXiv:2201.03545)",
+  "architecture": {
+    "preset": "atto",
+    "stem_mode": "conv",
+    "drop_path_rate": 0.1,
+    "depths": null,
+    "dims": null,
+    "num_params": 3376890
+  },
+  "dataset": {
+    "name": "CIFAR-10",
+    "split": "train 4500 / val 500 / test 2000",
+    "is_full_scale": false,
+    "train_subset_size": 5000,
+    "test_subset_size": 2000,
+    "val_ratio": 0.1,
+    "data_root": "D:\\Document\\workbuddy-ai\\CISC3024PRAI\\Assignment2\\04_data\\cifar10"
+  },
+  "device": "CPU",
+  "gpu_total_memory_gb": 0.0,
+  "batch_size_requested": 128,
+  "batch_size_actual": 128,
+  "grad_accum_steps": 1,
+  "effective_batch_size": 128,
+  "epochs": 10,
+  "epochs_completed": 10,
+  "best_val_acc": 45.2,
+  "best_val_epoch": 10,
+  "test_metrics": {
+    "loss": 1.669639,
+    "top1_acc": 45.05,
+    "top5_acc": 89.95,
+    "num_samples": 2000
+  },
+  "per_class_accuracy": {
+    "airplane": 54.2373,
+    "automobile": 57.4661,
+    "bird": 24.3386,
+    "cat": 28.3654,
+    "deer": 27.3196,
+    "dog": 32.1608,
+    "frog": 48.4043,
+    "horse": 59.0909,
+    "ship": 61.5023,
+    "truck": 54.9296
+  },
+  "macro_accuracy": 44.7815,
+  "total_training_time": "18m 41s",
+  "seed": 42
+}

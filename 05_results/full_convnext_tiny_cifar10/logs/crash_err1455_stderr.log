@@ -1,0 +1,47 @@
+Traceback (most recent call last):
+  File "D:\Document\workbuddy-ai\CISC3024PRAI\Assignment2\03_code\train.py", line 323, in <module>
+    main()
+    ~~~~^^
+  File "D:\Document\workbuddy-ai\CISC3024PRAI\Assignment2\03_code\train.py", line 183, in main
+    history = trainer.fit()
+  File "D:\Document\workbuddy-ai\CISC3024PRAI\Assignment2\03_code\src\engine\trainer.py", line 480, in fit
+    train_stats = self.train_one_epoch(epoch)
+  File "D:\Document\workbuddy-ai\CISC3024PRAI\Assignment2\03_code\src\engine\trainer.py", line 355, in train_one_epoch
+    for step, (images, targets) in enumerate(self.train_loader):
+                                   ~~~~~~~~~^^^^^^^^^^^^^^^^^^^
+  File "D:\develop\Python\Python314\Lib\site-packages\torch\utils\data\dataloader.py", line 725, in __next__
+    data = self._next_data()
+  File "D:\develop\Python\Python314\Lib\site-packages\torch\utils\data\dataloader.py", line 1531, in _next_data
+    return self._process_data(data, worker_id)
+           ~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^
+  File "D:\develop\Python\Python314\Lib\site-packages\torch\utils\data\dataloader.py", line 1569, in _process_data
+    data.reraise()
+    ~~~~~~~~~~~~^^
+  File "D:\develop\Python\Python314\Lib\site-packages\torch\_utils.py", line 803, in reraise
+    raise exception
+RuntimeError: Caught RuntimeError in DataLoader worker process 1.
+Original Traceback (most recent call last):
+  File "D:\develop\Python\Python314\Lib\site-packages\torch\utils\data\_utils\worker.py", line 375, in _worker_loop
+    data = fetcher.fetch(index)  # type: ignore[possibly-undefined]
+  File "D:\develop\Python\Python314\Lib\site-packages\torch\utils\data\_utils\fetch.py", line 57, in fetch
+    return self.collate_fn(data)
+           ~~~~~~~~~~~~~~~^^^^^^
+  File "D:\develop\Python\Python314\Lib\site-packages\torch\utils\data\_utils\collate.py", line 401, in default_collate
+    return collate(batch, collate_fn_map=default_collate_fn_map)
+  File "D:\develop\Python\Python314\Lib\site-packages\torch\utils\data\_utils\collate.py", line 215, in collate
+    collate(samples, collate_fn_map=collate_fn_map)
+    ~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\develop\Python\Python314\Lib\site-packages\torch\utils\data\_utils\collate.py", line 155, in collate
+    return collate_fn_map[elem_type](batch, collate_fn_map=collate_fn_map)
+           ~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "D:\develop\Python\Python314\Lib\site-packages\torch\utils\data\_utils\collate.py", line 273, in collate_tensor_fn
+    storage = elem._typed_storage()._new_shared(numel, device=elem.device)
+  File "D:\develop\Python\Python314\Lib\site-packages\torch\storage.py", line 1220, in _new_shared
+    untyped_storage = torch.UntypedStorage._new_shared(
+        size * self._element_size(), device=device
+    )
+  File "D:\develop\Python\Python314\Lib\site-packages\torch\storage.py", line 421, in _new_shared
+    return cls._new_using_filename_cpu(size)
+           ~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^
+RuntimeError: Couldn't open shared file mapping: <torch_21920_2878444600_5728>, error code: <1455>
+

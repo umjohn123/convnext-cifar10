@@ -1,0 +1,299 @@
+[11:28:58] INFO  | ================================================================================================
+[11:28:58] INFO  | 实验名称：convnext_cifar10
+[11:28:58] INFO  | 输出根目录：/content/convnext_cifar10/outputs
+[11:28:58] INFO  | 实验隔离标签：full_convnext_tiny_cifar10 -> 本次产物写入 /content/convnext_cifar10/outputs/full_convnext_tiny_cifar10
+[11:28:58] INFO  | ================================================================================================
+[11:28:58] INFO  | [device] CUDA:0 | Tesla T4 | 显存 14.6 GB
+[11:28:58] INFO  | [seed] 全局随机种子 = 42 | 确定性模式 = False
+[11:28:58] INFO  | [batch-size] 开始显存探测：期望 128，候选 128，范围 [8, 512]，AMP=True
+[11:29:01] INFO  | [batch-size] 显存仍有富余，自动上调至 256
+[11:29:03] INFO  | [batch-size] 显存仍有富余，自动上调至 512
+[11:29:03] INFO  | [batch-size] 最终确定 batch size = 512（探针峰值显存 10857 MB，GPU 总显存 14.6 GB）
+[11:29:03] INFO  | [batch-size] 期望 128 -> 实际 512，采用梯度累积 1 步（等效 batch = 512）
+[11:29:03] INFO  | [data] CIFAR-10 缓存状态：已就绪（跳过下载与重复校验）
+[11:29:03] INFO  | [data] 加载 CIFAR-10 训练集底座（transform=None，目录 /content/convnext_cifar10/data）
+[11:29:04] INFO  | [data] 加载 CIFAR-10 测试集底座（transform=None，目录 /content/convnext_cifar10/data）
+[11:29:04] INFO  | [data] 数据集 划分完成 | 训练 45000 张 | 验证 5000 张 | 测试 10000 张 | 类别数 10
+[11:29:04] INFO  | [data] DataLoader | train batch=512 | eval batch=1024 | num_workers=2 | pin_memory=True
+[11:29:07] INFO  | [figures] 数据样例图已保存：./outputs/full_convnext_tiny_cifar10/figures/data_samples.png
+[11:29:07] INFO  | [model] 结构摘要：
+[11:29:07] INFO  |     ConvNeXt-tiny | stem=conv | drop_path=0.1
+[11:29:07] INFO  |       input            : 3 x 32 x 32
+[11:29:07] INFO  |       stage 1          : 32 x 32 x 96   | blocks=3
+[11:29:07] INFO  |       stage 2          : 16 x 16 x 192  | blocks=3
+[11:29:07] INFO  |       stage 3          :  8 x  8 x 384  | blocks=9
+[11:29:07] INFO  |       stage 4          :  4 x  4 x 768  | blocks=3
+[11:29:07] INFO  |       head             : global average pool -> Linear(768 -> 10)
+[11:29:07] INFO  | [model] 总参数量 = 27.83 M（27,825,802）| 可训练参数量 = 27.83 M
+[11:29:08] INFO  | ================================================================================================
+[11:29:08] INFO  | 开始训练：epochs=60（本轮从 epoch 1 开始）| batch_size=512 x accum=1 (等效 batch=512)
+[11:29:08] INFO  | 优化器=AdamW(lr=0.001, wd=0.05) | 调度=warmup(5) + cosine -> 1e-05 | AMP=True | Mixup/CutMix=True | 参数量=27.83M
+[11:29:08] INFO  | ================================================================================================
+[11:29:08] INFO  | [Epoch 1/60] lr=2.000e-04
+[11:30:05] INFO  |   epoch   1 | step   50/88 | loss 2.2574 | acc 15.53% | lr 2.00e-04
+[11:30:52] INFO  |   epoch   1 | step   88/88 | loss 2.2038 | acc 18.80% | lr 2.00e-04 | 已用时 1m 45s
+[11:30:57] INFO  | [Epoch 1/60] 完成 | train_loss=2.2038 train_acc=18.80% | val_loss=2.1055 val_top1=24.84% val_top5=77.64% | 用时 1m 45s
+[11:30:59] INFO  |   -> 刷新最优验证准确率：24.84%（已保存 best.pt）
+[11:30:59] INFO  | [Epoch 2/60] lr=4.000e-04
+[11:32:00] INFO  |   epoch   2 | step   50/88 | loss 2.1478 | acc 22.34% | lr 4.00e-04
+[11:32:46] INFO  |   epoch   2 | step   88/88 | loss 2.1479 | acc 22.44% | lr 4.00e-04 | 已用时 1m 47s
+[11:32:50] INFO  | [Epoch 2/60] 完成 | train_loss=2.1479 train_acc=22.44% | val_loss=2.0984 val_top1=26.66% val_top5=77.34% | 用时 1m 47s
+[11:32:54] INFO  |   -> 刷新最优验证准确率：26.66%（已保存 best.pt）
+[11:32:54] INFO  | [Epoch 3/60] lr=6.000e-04
+[11:33:56] INFO  |   epoch   3 | step   50/88 | loss 2.1420 | acc 22.67% | lr 6.00e-04
+[11:34:42] INFO  |   epoch   3 | step   88/88 | loss 2.1436 | acc 22.45% | lr 6.00e-04 | 已用时 1m 47s
+[11:34:46] INFO  | [Epoch 3/60] 完成 | train_loss=2.1436 train_acc=22.45% | val_loss=2.0937 val_top1=26.12% val_top5=78.22% | 用时 1m 47s
+[11:34:47] INFO  | [Epoch 4/60] lr=8.000e-04
+[11:35:48] INFO  |   epoch   4 | step   50/88 | loss 2.1357 | acc 23.01% | lr 8.00e-04
+[11:36:34] INFO  |   epoch   4 | step   88/88 | loss 2.1339 | acc 22.69% | lr 8.00e-04 | 已用时 1m 47s
+[11:36:38] INFO  | [Epoch 4/60] 完成 | train_loss=2.1339 train_acc=22.69% | val_loss=2.0984 val_top1=25.20% val_top5=76.28% | 用时 1m 47s
+[11:36:40] INFO  | [Epoch 5/60] lr=1.000e-03
+[11:37:41] INFO  |   epoch   5 | step   50/88 | loss 2.1535 | acc 21.15% | lr 1.00e-03
+[11:38:27] INFO  |   epoch   5 | step   88/88 | loss 2.1516 | acc 21.30% | lr 1.00e-03 | 已用时 1m 47s
+[11:38:31] INFO  | [Epoch 5/60] 完成 | train_loss=2.1516 train_acc=21.30% | val_loss=2.0920 val_top1=25.34% val_top5=77.40% | 用时 1m 47s
+[11:38:32] INFO  | [Epoch 6/60] lr=1.000e-03
+[11:39:33] INFO  |   epoch   6 | step   50/88 | loss 2.1376 | acc 22.16% | lr 1.00e-03
+[11:40:19] INFO  |   epoch   6 | step   88/88 | loss 2.1389 | acc 22.22% | lr 1.00e-03 | 已用时 1m 47s
+[11:40:23] INFO  | [Epoch 6/60] 完成 | train_loss=2.1389 train_acc=22.22% | val_loss=2.0888 val_top1=24.48% val_top5=76.10% | 用时 1m 47s
+[11:40:26] INFO  | [Epoch 7/60] lr=9.992e-04
+[11:41:28] INFO  |   epoch   7 | step   50/88 | loss 2.1465 | acc 21.60% | lr 9.99e-04
+[11:42:14] INFO  |   epoch   7 | step   88/88 | loss 2.1521 | acc 21.50% | lr 9.99e-04 | 已用时 1m 47s
+[11:42:18] INFO  | [Epoch 7/60] 完成 | train_loss=2.1521 train_acc=21.50% | val_loss=2.2880 val_top1=16.28% val_top5=61.02% | 用时 1m 47s
+[11:42:21] INFO  | [Epoch 8/60] lr=9.968e-04
+[11:43:23] INFO  |   epoch   8 | step   50/88 | loss 2.2021 | acc 17.91% | lr 9.97e-04
+[11:44:09] INFO  |   epoch   8 | step   88/88 | loss 2.1895 | acc 19.25% | lr 9.97e-04 | 已用时 1m 47s
+[11:44:13] INFO  | [Epoch 8/60] 完成 | train_loss=2.1895 train_acc=19.25% | val_loss=2.1373 val_top1=24.30% val_top5=74.40% | 用时 1m 47s
+[11:44:16] INFO  | [Epoch 9/60] lr=9.928e-04
+[11:45:17] INFO  |   epoch   9 | step   50/88 | loss 2.1699 | acc 20.92% | lr 9.93e-04
+[11:46:03] INFO  |   epoch   9 | step   88/88 | loss 2.1707 | acc 20.96% | lr 9.93e-04 | 已用时 1m 47s
+[11:46:08] INFO  | [Epoch 9/60] 完成 | train_loss=2.1707 train_acc=20.96% | val_loss=2.1339 val_top1=23.96% val_top5=74.50% | 用时 1m 47s
+[11:46:11] INFO  | [Epoch 10/60] lr=9.871e-04
+[11:47:12] INFO  |   epoch  10 | step   50/88 | loss 2.1592 | acc 21.16% | lr 9.87e-04
+[11:47:58] INFO  |   epoch  10 | step   88/88 | loss 2.1601 | acc 21.44% | lr 9.87e-04 | 已用时 1m 47s
+[11:48:02] INFO  | [Epoch 10/60] 完成 | train_loss=2.1601 train_acc=21.44% | val_loss=2.1259 val_top1=24.60% val_top5=75.82% | 用时 1m 47s
+[11:48:04] INFO  | [Epoch 11/60] lr=9.799e-04
+[11:49:06] INFO  |   epoch  11 | step   50/88 | loss 2.1545 | acc 22.34% | lr 9.80e-04
+[11:49:51] INFO  |   epoch  11 | step   88/88 | loss 2.1539 | acc 22.43% | lr 9.80e-04 | 已用时 1m 47s
+[11:49:56] INFO  | [Epoch 11/60] 完成 | train_loss=2.1539 train_acc=22.43% | val_loss=2.1137 val_top1=24.58% val_top5=77.00% | 用时 1m 47s
+[11:49:59] INFO  | [Epoch 12/60] lr=9.712e-04
+[11:51:00] INFO  |   epoch  12 | step   50/88 | loss 2.1478 | acc 22.32% | lr 9.71e-04
+[11:51:46] INFO  |   epoch  12 | step   88/88 | loss 2.1533 | acc 22.09% | lr 9.71e-04 | 已用时 1m 47s
+[11:51:50] INFO  | [Epoch 12/60] 完成 | train_loss=2.1533 train_acc=22.09% | val_loss=2.1091 val_top1=24.68% val_top5=77.64% | 用时 1m 47s
+[11:51:53] INFO  | [Epoch 13/60] lr=9.610e-04
+[11:52:55] INFO  |   epoch  13 | step   50/88 | loss 2.1506 | acc 22.18% | lr 9.61e-04
+[11:53:41] INFO  |   epoch  13 | step   88/88 | loss 2.1484 | acc 22.47% | lr 9.61e-04 | 已用时 1m 48s
+[11:53:45] INFO  | [Epoch 13/60] 完成 | train_loss=2.1484 train_acc=22.47% | val_loss=2.1117 val_top1=26.20% val_top5=78.20% | 用时 1m 48s
+[11:53:47] INFO  | [Epoch 14/60] lr=9.492e-04
+[11:54:48] INFO  |   epoch  14 | step   50/88 | loss 2.1544 | acc 22.50% | lr 9.49e-04
+[11:55:34] INFO  |   epoch  14 | step   88/88 | loss 2.1510 | acc 22.50% | lr 9.49e-04 | 已用时 1m 47s
+[11:55:38] INFO  | [Epoch 14/60] 完成 | train_loss=2.1510 train_acc=22.50% | val_loss=2.1132 val_top1=25.32% val_top5=76.04% | 用时 1m 47s
+[11:55:39] INFO  | [Epoch 15/60] lr=9.360e-04
+[11:56:41] INFO  |   epoch  15 | step   50/88 | loss 2.1535 | acc 22.37% | lr 9.36e-04
+[11:57:26] INFO  |   epoch  15 | step   88/88 | loss 2.1567 | acc 22.11% | lr 9.36e-04 | 已用时 1m 47s
+[11:57:31] INFO  | [Epoch 15/60] 完成 | train_loss=2.1567 train_acc=22.11% | val_loss=2.1185 val_top1=25.12% val_top5=75.24% | 用时 1m 47s
+[11:57:32] INFO  | [Epoch 16/60] lr=9.214e-04
+[11:58:34] INFO  |   epoch  16 | step   50/88 | loss 2.1641 | acc 21.69% | lr 9.21e-04
+[11:59:20] INFO  |   epoch  16 | step   88/88 | loss 2.1642 | acc 21.67% | lr 9.21e-04 | 已用时 1m 47s
+[11:59:24] INFO  | [Epoch 16/60] 完成 | train_loss=2.1642 train_acc=21.67% | val_loss=2.1168 val_top1=25.08% val_top5=76.68% | 用时 1m 47s
+[11:59:25] INFO  | [Epoch 17/60] lr=9.055e-04
+[12:00:26] INFO  |   epoch  17 | step   50/88 | loss 2.1565 | acc 22.31% | lr 9.05e-04
+[12:01:12] INFO  |   epoch  17 | step   88/88 | loss 2.1614 | acc 21.89% | lr 9.05e-04 | 已用时 1m 47s
+[12:01:16] INFO  | [Epoch 17/60] 完成 | train_loss=2.1614 train_acc=21.89% | val_loss=2.1268 val_top1=23.72% val_top5=75.74% | 用时 1m 47s
+[12:01:19] INFO  | [Epoch 18/60] lr=8.882e-04
+[12:02:21] INFO  |   epoch  18 | step   50/88 | loss 2.1659 | acc 21.94% | lr 8.88e-04
+[12:03:06] INFO  |   epoch  18 | step   88/88 | loss 2.1699 | acc 21.69% | lr 8.88e-04 | 已用时 1m 47s
+[12:03:11] INFO  | [Epoch 18/60] 完成 | train_loss=2.1699 train_acc=21.69% | val_loss=2.1097 val_top1=26.24% val_top5=77.22% | 用时 1m 47s
+[12:03:12] INFO  | [Epoch 19/60] lr=8.697e-04
+[12:04:14] INFO  |   epoch  19 | step   50/88 | loss 2.1511 | acc 22.51% | lr 8.70e-04
+[12:05:00] INFO  |   epoch  19 | step   88/88 | loss 2.1719 | acc 21.03% | lr 8.70e-04 | 已用时 1m 48s
+[12:05:04] INFO  | [Epoch 19/60] 完成 | train_loss=2.1719 train_acc=21.03% | val_loss=2.2667 val_top1=17.68% val_top5=62.08% | 用时 1m 48s
+[12:05:05] INFO  | [Epoch 20/60] lr=8.500e-04
+[12:06:06] INFO  |   epoch  20 | step   50/88 | loss 2.2761 | acc 15.68% | lr 8.50e-04
+[12:06:52] INFO  |   epoch  20 | step   88/88 | loss 2.2560 | acc 17.23% | lr 8.50e-04 | 已用时 1m 47s
+[12:06:56] INFO  | [Epoch 20/60] 完成 | train_loss=2.2560 train_acc=17.23% | val_loss=2.1973 val_top1=21.66% val_top5=70.28% | 用时 1m 47s
+[12:06:58] INFO  | [Epoch 21/60] lr=8.292e-04
+[12:07:59] INFO  |   epoch  21 | step   50/88 | loss 2.2263 | acc 19.23% | lr 8.29e-04
+[12:08:45] INFO  |   epoch  21 | step   88/88 | loss 2.2267 | acc 18.98% | lr 8.29e-04 | 已用时 1m 47s
+[12:08:49] INFO  | [Epoch 21/60] 完成 | train_loss=2.2267 train_acc=18.98% | val_loss=2.1975 val_top1=20.72% val_top5=67.80% | 用时 1m 47s
+[12:08:51] INFO  | [Epoch 22/60] lr=8.073e-04
+[12:09:52] INFO  |   epoch  22 | step   50/88 | loss 2.2302 | acc 18.32% | lr 8.07e-04
+[12:10:38] INFO  |   epoch  22 | step   88/88 | loss 2.2315 | acc 17.87% | lr 8.07e-04 | 已用时 1m 47s
+[12:10:42] INFO  | [Epoch 22/60] 完成 | train_loss=2.2315 train_acc=17.87% | val_loss=2.2545 val_top1=16.60% val_top5=62.28% | 用时 1m 47s
+[12:10:43] INFO  | [Epoch 23/60] lr=7.844e-04
+[12:11:45] INFO  |   epoch  23 | step   50/88 | loss 2.2543 | acc 16.21% | lr 7.84e-04
+[12:12:30] INFO  |   epoch  23 | step   88/88 | loss 2.2404 | acc 17.03% | lr 7.84e-04 | 已用时 1m 47s
+[12:12:35] INFO  | [Epoch 23/60] 完成 | train_loss=2.2404 train_acc=17.03% | val_loss=2.1928 val_top1=16.30% val_top5=66.50% | 用时 1m 47s
+[12:12:36] INFO  | [Epoch 24/60] lr=7.606e-04
+[12:13:38] INFO  |   epoch  24 | step   50/88 | loss 2.2738 | acc 14.32% | lr 7.61e-04
+[12:14:24] INFO  |   epoch  24 | step   88/88 | loss 2.2725 | acc 14.64% | lr 7.61e-04 | 已用时 1m 48s
+[12:14:28] INFO  | [Epoch 24/60] 完成 | train_loss=2.2725 train_acc=14.64% | val_loss=2.2686 val_top1=11.56% val_top5=63.08% | 用时 1m 48s
+[12:14:29] INFO  | [Epoch 25/60] lr=7.360e-04
+[12:15:30] INFO  |   epoch  25 | step   50/88 | loss 2.2717 | acc 14.69% | lr 7.36e-04
+[12:16:16] INFO  |   epoch  25 | step   88/88 | loss 2.2684 | acc 14.84% | lr 7.36e-04 | 已用时 1m 47s
+[12:16:20] INFO  | [Epoch 25/60] 完成 | train_loss=2.2684 train_acc=14.84% | val_loss=2.2538 val_top1=18.88% val_top5=66.46% | 用时 1m 47s
+[12:16:21] INFO  | [Epoch 26/60] lr=7.106e-04
+[12:17:23] INFO  |   epoch  26 | step   50/88 | loss 2.2706 | acc 15.35% | lr 7.11e-04
+[12:18:08] INFO  |   epoch  26 | step   88/88 | loss 2.2678 | acc 15.06% | lr 7.11e-04 | 已用时 1m 47s
+[12:18:13] INFO  | [Epoch 26/60] 完成 | train_loss=2.2678 train_acc=15.06% | val_loss=2.2317 val_top1=15.86% val_top5=70.28% | 用时 1m 47s
+[12:18:16] INFO  | [Epoch 27/60] lr=6.846e-04
+[12:19:18] INFO  |   epoch  27 | step   50/88 | loss 2.2415 | acc 16.59% | lr 6.85e-04
+[12:20:04] INFO  |   epoch  27 | step   88/88 | loss 2.2450 | acc 16.43% | lr 6.85e-04 | 已用时 1m 48s
+[12:20:08] INFO  | [Epoch 27/60] 完成 | train_loss=2.2450 train_acc=16.43% | val_loss=2.2433 val_top1=17.82% val_top5=68.12% | 用时 1m 48s
+[12:20:11] INFO  | [Epoch 28/60] lr=6.580e-04
+[12:21:12] INFO  |   epoch  28 | step   50/88 | loss 2.2576 | acc 15.75% | lr 6.58e-04
+[12:21:58] INFO  |   epoch  28 | step   88/88 | loss 2.2590 | acc 15.72% | lr 6.58e-04 | 已用时 1m 47s
+[12:22:02] INFO  | [Epoch 28/60] 完成 | train_loss=2.2590 train_acc=15.72% | val_loss=2.2583 val_top1=16.26% val_top5=59.84% | 用时 1m 47s
+[12:22:06] INFO  | [Epoch 29/60] lr=6.308e-04
+[12:23:07] INFO  |   epoch  29 | step   50/88 | loss 2.2683 | acc 15.60% | lr 6.31e-04
+[12:23:53] INFO  |   epoch  29 | step   88/88 | loss 2.2541 | acc 16.44% | lr 6.31e-04 | 已用时 1m 47s
+[12:23:57] INFO  | [Epoch 29/60] 完成 | train_loss=2.2541 train_acc=16.44% | val_loss=2.2006 val_top1=21.00% val_top5=67.60% | 用时 1m 47s
+[12:24:01] INFO  | [Epoch 30/60] lr=6.033e-04
+[12:25:02] INFO  |   epoch  30 | step   50/88 | loss 2.2321 | acc 16.76% | lr 6.03e-04
+[12:25:48] INFO  |   epoch  30 | step   88/88 | loss 2.2332 | acc 16.66% | lr 6.03e-04 | 已用时 1m 47s
+[12:25:52] INFO  | [Epoch 30/60] 完成 | train_loss=2.2332 train_acc=16.66% | val_loss=2.2045 val_top1=17.30% val_top5=68.36% | 用时 1m 47s
+[12:25:54] INFO  | [Epoch 31/60] lr=5.754e-04
+[12:26:55] INFO  |   epoch  31 | step   50/88 | loss 2.2113 | acc 17.90% | lr 5.75e-04
+[12:27:41] INFO  |   epoch  31 | step   88/88 | loss 2.2130 | acc 17.87% | lr 5.75e-04 | 已用时 1m 47s
+[12:27:46] INFO  | [Epoch 31/60] 完成 | train_loss=2.2130 train_acc=17.87% | val_loss=2.1929 val_top1=16.46% val_top5=70.20% | 用时 1m 47s
+[12:27:47] INFO  | [Epoch 32/60] lr=5.474e-04
+[12:28:48] INFO  |   epoch  32 | step   50/88 | loss 2.2316 | acc 16.68% | lr 5.47e-04
+[12:29:34] INFO  |   epoch  32 | step   88/88 | loss 2.2303 | acc 17.36% | lr 5.47e-04 | 已用时 1m 47s
+[12:29:38] INFO  | [Epoch 32/60] 完成 | train_loss=2.2303 train_acc=17.36% | val_loss=2.2223 val_top1=18.00% val_top5=70.34% | 用时 1m 47s
+[12:29:42] INFO  | [Epoch 33/60] lr=5.191e-04
+[12:30:43] INFO  |   epoch  33 | step   50/88 | loss 2.2386 | acc 17.33% | lr 5.19e-04
+[12:31:29] INFO  |   epoch  33 | step   88/88 | loss 2.2325 | acc 17.20% | lr 5.19e-04 | 已用时 1m 47s
+[12:31:33] INFO  | [Epoch 33/60] 完成 | train_loss=2.2325 train_acc=17.20% | val_loss=2.2041 val_top1=21.16% val_top5=70.68% | 用时 1m 47s
+[12:31:35] INFO  | [Epoch 34/60] lr=4.909e-04
+[12:32:36] INFO  |   epoch  34 | step   50/88 | loss 2.2267 | acc 17.32% | lr 4.91e-04
+[12:33:22] INFO  |   epoch  34 | step   88/88 | loss 2.2237 | acc 17.36% | lr 4.91e-04 | 已用时 1m 47s
+[12:33:26] INFO  | [Epoch 34/60] 完成 | train_loss=2.2237 train_acc=17.36% | val_loss=2.2061 val_top1=18.18% val_top5=73.62% | 用时 1m 47s
+[12:33:30] INFO  | [Epoch 35/60] lr=4.626e-04
+[12:34:31] INFO  |   epoch  35 | step   50/88 | loss 2.2136 | acc 18.62% | lr 4.63e-04
+[12:35:17] INFO  |   epoch  35 | step   88/88 | loss 2.2216 | acc 17.87% | lr 4.63e-04 | 已用时 1m 47s
+[12:35:21] INFO  | [Epoch 35/60] 完成 | train_loss=2.2216 train_acc=17.87% | val_loss=2.2008 val_top1=18.02% val_top5=71.00% | 用时 1m 47s
+[12:35:24] INFO  | [Epoch 36/60] lr=4.346e-04
+[12:36:26] INFO  |   epoch  36 | step   50/88 | loss 2.2192 | acc 17.53% | lr 4.35e-04
+[12:37:12] INFO  |   epoch  36 | step   88/88 | loss 2.2148 | acc 17.79% | lr 4.35e-04 | 已用时 1m 47s
+[12:37:16] INFO  | [Epoch 36/60] 完成 | train_loss=2.2148 train_acc=17.79% | val_loss=2.2053 val_top1=19.08% val_top5=71.30% | 用时 1m 47s
+[12:37:17] INFO  | [Epoch 37/60] lr=4.067e-04
+[12:38:19] INFO  |   epoch  37 | step   50/88 | loss 2.2345 | acc 17.69% | lr 4.07e-04
+[12:39:05] INFO  |   epoch  37 | step   88/88 | loss 2.2346 | acc 17.43% | lr 4.07e-04 | 已用时 1m 47s
+[12:39:09] INFO  | [Epoch 37/60] 完成 | train_loss=2.2346 train_acc=17.43% | val_loss=2.2191 val_top1=20.06% val_top5=73.16% | 用时 1m 47s
+[12:39:10] INFO  | [Epoch 38/60] lr=3.792e-04
+[12:40:12] INFO  |   epoch  38 | step   50/88 | loss 2.2398 | acc 16.17% | lr 3.79e-04
+[12:40:58] INFO  |   epoch  38 | step   88/88 | loss 2.2550 | acc 15.55% | lr 3.79e-04 | 已用时 1m 47s
+[12:41:02] INFO  | [Epoch 38/60] 完成 | train_loss=2.2550 train_acc=15.55% | val_loss=2.1982 val_top1=17.80% val_top5=71.64% | 用时 1m 47s
+[12:41:05] INFO  | [Epoch 39/60] lr=3.520e-04
+[12:42:06] INFO  |   epoch  39 | step   50/88 | loss 2.2070 | acc 17.93% | lr 3.52e-04
+[12:42:52] INFO  |   epoch  39 | step   88/88 | loss 2.2062 | acc 17.98% | lr 3.52e-04 | 已用时 1m 47s
+[12:42:56] INFO  | [Epoch 39/60] 完成 | train_loss=2.2062 train_acc=17.98% | val_loss=2.1836 val_top1=19.64% val_top5=71.40% | 用时 1m 47s
+[12:42:58] INFO  | [Epoch 40/60] lr=3.254e-04
+[12:43:59] INFO  |   epoch  40 | step   50/88 | loss 2.2142 | acc 17.89% | lr 3.25e-04
+[12:44:45] INFO  |   epoch  40 | step   88/88 | loss 2.2177 | acc 17.78% | lr 3.25e-04 | 已用时 1m 47s
+[12:44:49] INFO  | [Epoch 40/60] 完成 | train_loss=2.2177 train_acc=17.78% | val_loss=2.1955 val_top1=19.04% val_top5=71.60% | 用时 1m 47s
+[12:44:52] INFO  | [Epoch 41/60] lr=2.994e-04
+[12:45:53] INFO  |   epoch  41 | step   50/88 | loss 2.2194 | acc 17.98% | lr 2.99e-04
+[12:46:39] INFO  |   epoch  41 | step   88/88 | loss 2.2165 | acc 18.26% | lr 2.99e-04 | 已用时 1m 47s
+[12:46:44] INFO  | [Epoch 41/60] 完成 | train_loss=2.2165 train_acc=18.26% | val_loss=2.1954 val_top1=18.02% val_top5=72.56% | 用时 1m 47s
+[12:46:45] INFO  | [Epoch 42/60] lr=2.740e-04
+[12:47:46] INFO  |   epoch  42 | step   50/88 | loss 2.2186 | acc 18.80% | lr 2.74e-04
+[12:48:32] INFO  |   epoch  42 | step   88/88 | loss 2.2225 | acc 18.41% | lr 2.74e-04 | 已用时 1m 47s
+[12:48:36] INFO  | [Epoch 42/60] 完成 | train_loss=2.2225 train_acc=18.41% | val_loss=2.1961 val_top1=20.32% val_top5=73.80% | 用时 1m 47s
+[12:48:39] INFO  | [Epoch 43/60] lr=2.494e-04
+[12:49:40] INFO  |   epoch  43 | step   50/88 | loss 2.2152 | acc 19.19% | lr 2.49e-04
+[12:50:26] INFO  |   epoch  43 | step   88/88 | loss 2.2172 | acc 18.89% | lr 2.49e-04 | 已用时 1m 47s
+[12:50:30] INFO  | [Epoch 43/60] 完成 | train_loss=2.2172 train_acc=18.89% | val_loss=2.1950 val_top1=20.94% val_top5=71.04% | 用时 1m 47s
+[12:50:34] INFO  | [Epoch 44/60] lr=2.256e-04
+[12:51:35] INFO  |   epoch  44 | step   50/88 | loss 2.2107 | acc 18.78% | lr 2.26e-04
+[12:52:21] INFO  |   epoch  44 | step   88/88 | loss 2.2155 | acc 18.61% | lr 2.26e-04 | 已用时 1m 47s
+[12:52:25] INFO  | [Epoch 44/60] 完成 | train_loss=2.2155 train_acc=18.61% | val_loss=2.1891 val_top1=20.80% val_top5=74.28% | 用时 1m 47s
+[12:52:28] INFO  | [Epoch 45/60] lr=2.027e-04
+[12:53:29] INFO  |   epoch  45 | step   50/88 | loss 2.2154 | acc 18.61% | lr 2.03e-04
+[12:54:15] INFO  |   epoch  45 | step   88/88 | loss 2.2142 | acc 18.81% | lr 2.03e-04 | 已用时 1m 47s
+[12:54:20] INFO  | [Epoch 45/60] 完成 | train_loss=2.2142 train_acc=18.81% | val_loss=2.1923 val_top1=21.74% val_top5=72.92% | 用时 1m 47s
+[12:54:21] INFO  | [Epoch 46/60] lr=1.808e-04
+[12:55:22] INFO  |   epoch  46 | step   50/88 | loss 2.2122 | acc 19.15% | lr 1.81e-04
+[12:56:08] INFO  |   epoch  46 | step   88/88 | loss 2.2150 | acc 18.96% | lr 1.81e-04 | 已用时 1m 47s
+[12:56:12] INFO  | [Epoch 46/60] 完成 | train_loss=2.2150 train_acc=18.96% | val_loss=2.1932 val_top1=19.80% val_top5=71.84% | 用时 1m 47s
+[12:56:13] INFO  | [Epoch 47/60] lr=1.600e-04
+[12:57:15] INFO  |   epoch  47 | step   50/88 | loss 2.2104 | acc 18.52% | lr 1.60e-04
+[12:58:01] INFO  |   epoch  47 | step   88/88 | loss 2.2084 | acc 18.68% | lr 1.60e-04 | 已用时 1m 47s
+[12:58:05] INFO  | [Epoch 47/60] 完成 | train_loss=2.2084 train_acc=18.68% | val_loss=2.1811 val_top1=20.10% val_top5=74.62% | 用时 1m 47s
+[12:58:06] INFO  | [Epoch 48/60] lr=1.403e-04
+[12:59:08] INFO  |   epoch  48 | step   50/88 | loss 2.2029 | acc 18.51% | lr 1.40e-04
+[12:59:53] INFO  |   epoch  48 | step   88/88 | loss 2.2014 | acc 18.30% | lr 1.40e-04 | 已用时 1m 47s
+[12:59:58] INFO  | [Epoch 48/60] 完成 | train_loss=2.2014 train_acc=18.30% | val_loss=2.1830 val_top1=20.46% val_top5=73.80% | 用时 1m 47s
+[12:59:59] INFO  | [Epoch 49/60] lr=1.218e-04
+[13:01:00] INFO  |   epoch  49 | step   50/88 | loss 2.2251 | acc 18.16% | lr 1.22e-04
+[13:01:46] INFO  |   epoch  49 | step   88/88 | loss 2.2186 | acc 18.34% | lr 1.22e-04 | 已用时 1m 47s
+[13:01:50] INFO  | [Epoch 49/60] 完成 | train_loss=2.2186 train_acc=18.34% | val_loss=2.1845 val_top1=19.70% val_top5=73.62% | 用时 1m 47s
+[13:01:52] INFO  | [Epoch 50/60] lr=1.045e-04
+[13:02:53] INFO  |   epoch  50 | step   50/88 | loss 2.2104 | acc 17.97% | lr 1.05e-04
+[13:03:39] INFO  |   epoch  50 | step   88/88 | loss 2.2017 | acc 18.52% | lr 1.05e-04 | 已用时 1m 48s
+[13:03:43] INFO  | [Epoch 50/60] 完成 | train_loss=2.2017 train_acc=18.52% | val_loss=2.1689 val_top1=20.34% val_top5=73.06% | 用时 1m 48s
+[13:03:47] INFO  | [Epoch 51/60] lr=8.858e-05
+[13:04:48] INFO  |   epoch  51 | step   50/88 | loss 2.2007 | acc 18.77% | lr 8.86e-05
+[13:05:34] INFO  |   epoch  51 | step   88/88 | loss 2.2005 | acc 18.71% | lr 8.86e-05 | 已用时 1m 47s
+[13:05:39] INFO  | [Epoch 51/60] 完成 | train_loss=2.2005 train_acc=18.71% | val_loss=2.1822 val_top1=18.00% val_top5=74.22% | 用时 1m 47s
+[13:05:40] INFO  | [Epoch 52/60] lr=7.398e-05
+[13:06:41] INFO  |   epoch  52 | step   50/88 | loss 2.2050 | acc 17.71% | lr 7.40e-05
+[13:07:27] INFO  |   epoch  52 | step   88/88 | loss 2.2020 | acc 18.36% | lr 7.40e-05 | 已用时 1m 47s
+[13:07:31] INFO  | [Epoch 52/60] 完成 | train_loss=2.2020 train_acc=18.36% | val_loss=2.1643 val_top1=23.02% val_top5=74.26% | 用时 1m 47s
+[13:07:33] INFO  | [Epoch 53/60] lr=6.079e-05
+[13:08:34] INFO  |   epoch  53 | step   50/88 | loss 2.1920 | acc 19.46% | lr 6.08e-05
+[13:09:20] INFO  |   epoch  53 | step   88/88 | loss 2.1929 | acc 19.48% | lr 6.08e-05 | 已用时 1m 47s
+[13:09:24] INFO  | [Epoch 53/60] 完成 | train_loss=2.1929 train_acc=19.48% | val_loss=2.1620 val_top1=21.76% val_top5=73.72% | 用时 1m 47s
+[13:09:26] INFO  | [Epoch 54/60] lr=4.904e-05
+[13:10:27] INFO  |   epoch  54 | step   50/88 | loss 2.1971 | acc 19.02% | lr 4.90e-05
+[13:11:13] INFO  |   epoch  54 | step   88/88 | loss 2.1941 | acc 18.99% | lr 4.90e-05 | 已用时 1m 47s
+[13:11:17] INFO  | [Epoch 54/60] 完成 | train_loss=2.1941 train_acc=18.99% | val_loss=2.1631 val_top1=21.54% val_top5=75.54% | 用时 1m 47s
+[13:11:18] INFO  | [Epoch 55/60] lr=3.879e-05
+[13:12:20] INFO  |   epoch  55 | step   50/88 | loss 2.1919 | acc 19.74% | lr 3.88e-05
+[13:13:06] INFO  |   epoch  55 | step   88/88 | loss 2.1926 | acc 19.63% | lr 3.88e-05 | 已用时 1m 47s
+[13:13:10] INFO  | [Epoch 55/60] 完成 | train_loss=2.1926 train_acc=19.63% | val_loss=2.1589 val_top1=21.26% val_top5=74.76% | 用时 1m 47s
+[13:13:13] INFO  | [Epoch 56/60] lr=3.005e-05
+[13:14:14] INFO  |   epoch  56 | step   50/88 | loss 2.1852 | acc 19.74% | lr 3.01e-05
+[13:15:00] INFO  |   epoch  56 | step   88/88 | loss 2.1868 | acc 19.62% | lr 3.01e-05 | 已用时 1m 47s
+[13:15:04] INFO  | [Epoch 56/60] 完成 | train_loss=2.1868 train_acc=19.62% | val_loss=2.1572 val_top1=23.52% val_top5=75.10% | 用时 1m 47s
+[13:15:06] INFO  | [Epoch 57/60] lr=2.286e-05
+[13:16:07] INFO  |   epoch  57 | step   50/88 | loss 2.1990 | acc 19.38% | lr 2.29e-05
+[13:16:53] INFO  |   epoch  57 | step   88/88 | loss 2.1907 | acc 19.70% | lr 2.29e-05 | 已用时 1m 47s
+[13:16:57] INFO  | [Epoch 57/60] 完成 | train_loss=2.1907 train_acc=19.70% | val_loss=2.1539 val_top1=23.32% val_top5=75.46% | 用时 1m 47s
+[13:16:58] INFO  | [Epoch 58/60] lr=1.725e-05
+[13:18:00] INFO  |   epoch  58 | step   50/88 | loss 2.1889 | acc 19.89% | lr 1.72e-05
+[13:18:46] INFO  |   epoch  58 | step   88/88 | loss 2.1892 | acc 19.86% | lr 1.72e-05 | 已用时 1m 47s
+[13:18:50] INFO  | [Epoch 58/60] 完成 | train_loss=2.1892 train_acc=19.86% | val_loss=2.1557 val_top1=23.10% val_top5=75.48% | 用时 1m 47s
+[13:18:51] INFO  | [Epoch 59/60] lr=1.323e-05
+[13:19:53] INFO  |   epoch  59 | step   50/88 | loss 2.1869 | acc 19.89% | lr 1.32e-05
+[13:20:39] INFO  |   epoch  59 | step   88/88 | loss 2.1864 | acc 20.05% | lr 1.32e-05 | 已用时 1m 48s
+[13:20:43] INFO  | [Epoch 59/60] 完成 | train_loss=2.1864 train_acc=20.05% | val_loss=2.1541 val_top1=23.78% val_top5=75.52% | 用时 1m 48s
+[13:20:44] INFO  | [Epoch 60/60] lr=1.081e-05
+[13:21:46] INFO  |   epoch  60 | step   50/88 | loss 2.1831 | acc 20.61% | lr 1.08e-05
+[13:22:32] INFO  |   epoch  60 | step   88/88 | loss 2.1846 | acc 20.37% | lr 1.08e-05 | 已用时 1m 47s
+[13:22:36] INFO  | [Epoch 60/60] 完成 | train_loss=2.1846 train_acc=20.37% | val_loss=2.1542 val_top1=23.40% val_top5=74.82% | 用时 1m 47s
+[13:22:39] INFO  | 训练结束 | 历史最优验证准确率 = 26.66%（epoch 2）| 曲线已保存至 ./outputs/full_convnext_tiny_cifar10/figures/training_curves.png
+[13:22:39] INFO  | [logs] 逐轮指标已保存：/content/convnext_cifar10/outputs/full_convnext_tiny_cifar10/logs/history.json 与 /content/convnext_cifar10/outputs/full_convnext_tiny_cifar10/logs/history.csv
+[13:22:39] INFO  | ================================================================================================
+[13:22:39] INFO  | 开始在**测试集**上评估验证集最优模型（best.pt）……
+[13:22:40] INFO  | [evaluate] 已载入 ./outputs/full_convnext_tiny_cifar10/models/best.pt（对应 epoch 2）
+[13:22:49] INFO  | [test] loss=2.0936 | Top-1 = 25.73% | Top-5 = 78.35% | 样本数 = 10000 | TTA = False
+[13:22:57] INFO  | 逐类准确率（测试集）：
+[13:22:57] INFO  |     airplane   :  29.20%  (支撑样本 1000 张)
+[13:22:57] INFO  |     automobile :  26.80%  (支撑样本 1000 张)
+[13:22:57] INFO  |     bird       :   7.20%  (支撑样本 1000 张)
+[13:22:57] INFO  |     cat        :   5.00%  (支撑样本 1000 张)
+[13:22:57] INFO  |     deer       :  17.30%  (支撑样本 1000 张)
+[13:22:57] INFO  |     dog        :  17.00%  (支撑样本 1000 张)
+[13:22:57] INFO  |     frog       :  59.90%  (支撑样本 1000 张)
+[13:22:57] INFO  |     horse      :  16.50%  (支撑样本 1000 张)
+[13:22:57] INFO  |     ship       :  61.10%  (支撑样本 1000 张)
+[13:22:57] INFO  |     truck      :  17.30%  (支撑样本 1000 张)
+[13:22:57] INFO  | 宏平均（各类准确率均值）：25.73%
+[13:22:57] INFO  | [metrics] 指标汇总表已保存：/content/convnext_cifar10/outputs/full_convnext_tiny_cifar10/metrics/metrics.csv
+[13:22:57] INFO  | ================================================================================================
+[13:22:57] INFO  | 全部完成！总耗时 1h 54m 00s
+[13:22:57] INFO  | 最终测试集 Top-1 准确率：25.73%
+[13:22:57] INFO  | 本次实验产物目录：/content/convnext_cifar10/outputs/full_convnext_tiny_cifar10
+[13:22:57] INFO  | 结果文件：/content/convnext_cifar10/outputs/full_convnext_tiny_cifar10/metrics
+[13:22:57] INFO  | 图表文件：/content/convnext_cifar10/outputs/full_convnext_tiny_cifar10/figures
+[13:22:57] INFO  | ================================================================================================

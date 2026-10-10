@@ -1,0 +1,67 @@
+{
+  "experiment": "convnext_cifar10",
+  "algorithm": "ConvNeXt (A ConvNet for the 2020s, CVPR 2022; arXiv:2201.03545)",
+  "architecture": {
+    "preset": "tiny",
+    "stem_mode": "conv",
+    "drop_path_rate": 0.1,
+    "depths": null,
+    "dims": null,
+    "num_params": 27825802
+  },
+  "dataset": {
+    "name": "CIFAR10",
+    "is_synthetic": false,
+    "split": "train 45000 / val 5000 / test 10000",
+    "is_full_scale": true,
+    "train_subset_size": null,
+    "test_subset_size": null,
+    "val_ratio": 0.1,
+    "data_root": "D:\\Document\\workbuddy-ai\\CISC3024PRAI\\Assignment2\\04_data\\cifar10"
+  },
+  "device": "CUDA:0 | NVIDIA GeForce RTX 4060 Laptop GPU | 显存 8.0 GB",
+  "gpu_total_memory_gb": 8.0,
+  "batch_size_requested": 128,
+  "batch_size_actual": 128,
+  "grad_accum_steps": 1,
+  "effective_batch_size": 128,
+  "epochs": 60,
+  "epochs_completed": 60,
+  "max_steps_per_epoch": null,
+  "best_val_acc": 93.5,
+  "best_val_epoch": 59,
+  "test_metrics": {
+    "loss": 0.684162,
+    "top1_acc": 92.66,
+    "top5_acc": 99.56,
+    "num_samples": 10000
+  },
+  "evaluation": {
+    "tta": false,
+    "tta_views": [
+      "identity"
+    ],
+    "note": "loss 由不做 TTA 的原始前向计算；Top-1/Top-5 使用 TTA 平均 softmax 概率"
+  },
+  "per_class_accuracy": {
+    "airplane": 93.5,
+    "automobile": 98.2,
+    "bird": 90.2,
+    "cat": 82.1,
+    "deer": 92.9,
+    "dog": 87.9,
+    "frog": 95.9,
+    "horse": 94.6,
+    "ship": 96.3,
+    "truck": 95.1
+  },
+  "macro_accuracy": 92.67,
+  "total_training_time": "1h 55m 08s",
+  "seed": 42,
+  "amp": {
+    "enabled": true,
+    "dtype": "bfloat16",
+    "min_scale": 2097152.0,
+    "fell_back_to_fp32": false
+  }
+}

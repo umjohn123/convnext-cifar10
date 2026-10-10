@@ -1,0 +1,24 @@
+# ConvNeXt + CIFAR-10 —— Python 依赖清单
+#
+# 说明：Google Colab 已内置下列全部依赖，**无需安装**即可直接运行本工程。
+# 只有在本地环境运行时才需要执行：  pip install -r requirements.txt
+#
+# 依赖版本下限与实测环境：
+#   - 本地 GPU 实测：torch 2.14.1+cu130 / torchvision 0.29.1+cu130
+#     （NVIDIA RTX 4060 Laptop 8 GB，Python 3.14，Windows）
+#   - 本地 CPU 实测：torch 2.14.0+cpu / torchvision 0.29.0+cpu
+#   - Colab 实测：torch 2.x (CUDA) / torchvision 0.2x
+#
+# ⚠️ 注意：PyPI 上 Windows 的 torch 轮子是 **CPU 版**（约 120 MB，安装后版本号带 "+cpu"）。
+#    需要 GPU 时请改装 CUDA 版（约 2 GB，随附 CUDA 运行时，无需单独安装 CUDA Toolkit）：
+#
+#      pip install --upgrade --extra-index-url https://download.pytorch.org/whl/cu130 \
+#                  "torch==2.14.1+cu130" "torchvision==0.29.1+cu130"
+#
+#    其他 CUDA 版本把 cu130 换成 cu126 / cu128 即可（需驱动支持）。
+#    验证：python -c "import torch; print(torch.__version__, torch.cuda.is_available())"
+
+torch>=2.1.0
+torchvision>=0.16.0
+numpy>=1.24.0
+matplotlib>=3.7.0

@@ -1,0 +1,32 @@
+[10:41:20] INFO  | ====================================================================================================
+[10:41:20] INFO  | [evaluate] 检查点：D:\Document\workbuddy-ai\CISC3024PRAI\Assignment2\05_results\models\best.pt
+[10:41:20] INFO  | [evaluate] 已从检查点恢复训练时的模型配置：preset=atto | stem_mode=conv | drop_path=0.1
+[10:41:20] INFO  | [device] CPU
+[10:41:25] WARNING | [data] 已启用『快速验证子集』模式：训练池 5000 / 原 50000 张，测试集 2000 / 原 10000 张。该模式下的指标**不能**与全量数据结果直接比较，仅用于快速验证流程。
+[10:41:25] INFO  | [data] CIFAR-10 划分完成 | 训练 4500 张 | 验证 500 张 | 测试 2000 张 | 类别数 10
+[10:41:25] INFO  | [data] DataLoader | train batch=128 | eval batch=256 | num_workers=0 | pin_memory=False
+[10:41:25] INFO  |     ConvNeXt-atto | stem=conv | drop_path=0.1
+[10:41:25] INFO  |       input            : 3 x 32 x 32
+[10:41:25] INFO  |       stage 1          : 32 x 32 x 40   | blocks=2
+[10:41:25] INFO  |       stage 2          : 16 x 16 x 80   | blocks=2
+[10:41:25] INFO  |       stage 3          :  8 x  8 x 160  | blocks=6
+[10:41:25] INFO  |       stage 4          :  4 x  4 x 320  | blocks=2
+[10:41:25] INFO  |       head             : global average pool -> Linear(320 -> 10)
+[10:41:25] INFO  | [model] 总参数量 = 3.38 M
+[10:41:25] INFO  | [evaluate] 已载入权重（训练时 epoch = 9）
+[10:41:40] INFO  | [test] loss=1.6696 | Top-1 = 45.05% | Top-5 = 89.95% | 样本数 = 2000
+[10:41:55] INFO  | 逐类准确率（测试集）：
+[10:41:55] INFO  |     airplane   :  54.24%  (支撑样本 177 张)
+[10:41:55] INFO  |     automobile :  57.47%  (支撑样本 221 张)
+[10:41:55] INFO  |     bird       :  24.34%  (支撑样本 189 张)
+[10:41:55] INFO  |     cat        :  28.37%  (支撑样本 208 张)
+[10:41:55] INFO  |     deer       :  27.32%  (支撑样本 194 张)
+[10:41:55] INFO  |     dog        :  32.16%  (支撑样本 199 张)
+[10:41:55] INFO  |     frog       :  48.40%  (支撑样本 188 张)
+[10:41:55] INFO  |     horse      :  59.09%  (支撑样本 198 张)
+[10:41:55] INFO  |     ship       :  61.50%  (支撑样本 213 张)
+[10:41:55] INFO  |     truck      :  54.93%  (支撑样本 213 张)
+[10:41:55] INFO  | 宏平均（各类准确率均值）：44.78%
+[10:41:57] INFO  | [evaluate] 结果已保存：D:\Document\workbuddy-ai\CISC3024PRAI\Assignment2\05_results\metrics\eval_metrics.json
+[10:41:57] INFO  | [evaluate] 图表已保存：D:\Document\workbuddy-ai\CISC3024PRAI\Assignment2\05_results\figures
+[10:41:57] INFO  | ====================================================================================================

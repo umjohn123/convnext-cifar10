@@ -1,0 +1,40 @@
+{
+  "seed": 42,
+  "method": "torch.Generator().manual_seed(42) + torch.randperm(50000)",
+  "val_ratio": 0.1,
+  "full_split": {
+    "train_size": 45000,
+    "val_size": 5000,
+    "test_size": 10000,
+    "files": {
+      "train": "train_indices.pt",
+      "val": "val_indices.pt",
+      "test": "test_indices.pt"
+    },
+    "semantics": {
+      "train_indices.pt": "训练集的**实际迭代顺序**：取 randperm(50000, seed=42) 的前 45000 项。已与代码逐项回归校验一致。",
+      "val_indices.pt": "验证集的**实际迭代顺序**：取同一排列的后 5000 项。已与代码逐项回归校验一致。",
+      "test_indices.pt": "固定的**测试集抽样排列** randperm(10000, seed=43)，仅用于派生测试子集；全量测试评估按 torchvision 原生顺序 0..9999 迭代，因此本文件**不是**全量评估的迭代顺序。"
+    }
+  },
+  "mvp_subset_split": {
+    "train_size": 4500,
+    "val_size": 500,
+    "test_size": 2000,
+    "train_subset_size": 5000,
+    "test_subset_size": 2000,
+    "files": {
+      "train": "mvp_subset_train_indices.pt",
+      "val": "mvp_subset_val_indices.pt",
+      "test": "mvp_subset_test_indices.pt"
+    },
+    "semantics": {
+      "mvp_subset_train_indices.pt": "取 randperm(50000, seed=42) 的前 5000 项作为训练池，再取其前 4500 项。",
+      "mvp_subset_val_indices.pt": "同一训练池的后 500 项（即 randperm 的第 4500~4999 项）。",
+      "mvp_subset_test_indices.pt": "randperm(10000, seed=43) 的前 2000 项。"
+    }
+  },
+  "note": "索引为 CIFAR-10 官方训练集/测试集内的位置下标；MVP 子集取自同一固定种子排列的前 N 个，与 03_code 中 --train-subset-size / --test-subset-size 的实现完全一致。三个 mvp_subset_* 文件正是 05_results/mvp_atto_subset5k 实验实际使用的索引，已逐项回归校验。",
+  "verified_by": "03_code 数据层回归测试（对比 splits/*.pt 与 build_datasets() 的实际输出）",
+  "verified_against": "train_indices / val_indices / mvp_subset_train_indices / mvp_subset_val_indices / mvp_subset_test_indices —— 逐项 torch.equal 通过"
+}

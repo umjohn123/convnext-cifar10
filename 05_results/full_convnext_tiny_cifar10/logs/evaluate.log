@@ -1,0 +1,35 @@
+[16:04:36] INFO  | ====================================================================================================
+[16:04:36] INFO  | [evaluate] 检查点：D:\Document\workbuddy-ai\CISC3024PRAI\Assignment2\05_results\full_convnext_tiny_cifar10\models\best.pt
+[16:04:36] INFO  | [evaluate] 已从检查点恢复训练时的模型配置：preset=tiny | stem_mode=conv | drop_path=0.1
+[16:04:36] INFO  | [device] CUDA:0 | NVIDIA GeForce RTX 4060 Laptop GPU | 显存 8.0 GB
+[16:04:36] INFO  | [data] CIFAR-10 缓存状态：已就绪（跳过下载与重复校验）
+[16:04:36] INFO  | [data] 加载 CIFAR-10 训练集底座（transform=None，目录 D:\Document\workbuddy-ai\CISC3024PRAI\Assignment2\04_data\cifar10）
+[16:04:37] INFO  | [data] 加载 CIFAR-10 测试集底座（transform=None，目录 D:\Document\workbuddy-ai\CISC3024PRAI\Assignment2\04_data\cifar10）
+[16:04:38] INFO  | [data] 数据集 划分完成 | 训练 45000 张 | 验证 5000 张 | 测试 10000 张 | 类别数 10
+[16:04:38] INFO  | [data] DataLoader | train batch=128 | eval batch=256 | num_workers=0 | pin_memory=True
+[16:04:39] INFO  |     ConvNeXt-tiny | stem=conv | drop_path=0.1
+[16:04:39] INFO  |       input            : 3 x 32 x 32
+[16:04:39] INFO  |       stage 1          : 32 x 32 x 96   | blocks=3
+[16:04:39] INFO  |       stage 2          : 16 x 16 x 192  | blocks=3
+[16:04:39] INFO  |       stage 3          :  8 x  8 x 384  | blocks=9
+[16:04:39] INFO  |       stage 4          :  4 x  4 x 768  | blocks=3
+[16:04:39] INFO  |       head             : global average pool -> Linear(768 -> 10)
+[16:04:39] INFO  | [model] 总参数量 = 27.83 M
+[16:04:39] INFO  | [evaluate] 已载入权重（训练时 epoch = 58）
+[16:04:39] INFO  | [test] 启用测试时增强 —— TTA views = ['identity', 'hflip'] (平均 softmax 概率)
+[16:04:57] INFO  | [test] loss=0.6842 | Top-1 = 92.87% | Top-5 = 99.61% | 样本数 = 10000 | TTA = True
+[16:05:17] INFO  | 逐类准确率（测试集）：
+[16:05:17] INFO  |     airplane   :  93.80%  (支撑样本 1000 张)
+[16:05:17] INFO  |     automobile :  97.90%  (支撑样本 1000 张)
+[16:05:17] INFO  |     bird       :  90.90%  (支撑样本 1000 张)
+[16:05:17] INFO  |     cat        :  82.80%  (支撑样本 1000 张)
+[16:05:17] INFO  |     deer       :  93.40%  (支撑样本 1000 张)
+[16:05:17] INFO  |     dog        :  88.20%  (支撑样本 1000 张)
+[16:05:17] INFO  |     frog       :  96.20%  (支撑样本 1000 张)
+[16:05:17] INFO  |     horse      :  94.20%  (支撑样本 1000 张)
+[16:05:17] INFO  |     ship       :  96.50%  (支撑样本 1000 张)
+[16:05:17] INFO  |     truck      :  94.80%  (支撑样本 1000 张)
+[16:05:17] INFO  | 宏平均（各类准确率均值）：92.87%
+[16:05:19] INFO  | [evaluate] 结果已保存：D:\Document\workbuddy-ai\CISC3024PRAI\Assignment2\05_results\full_convnext_tiny_cifar10\metrics\eval_metrics.json
+[16:05:19] INFO  | [evaluate] 图表已保存：D:\Document\workbuddy-ai\CISC3024PRAI\Assignment2\05_results\full_convnext_tiny_cifar10\figures
+[16:05:19] INFO  | ====================================================================================================

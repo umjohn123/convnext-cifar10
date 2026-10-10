@@ -1,0 +1,59 @@
+{
+  "data": {
+    "dataset": "CIFAR10",
+    "data_root": "../04_data/cifar10",
+    "num_classes": 10,
+    "val_ratio": 0.1,
+    "train_subset_size": 5000,
+    "test_subset_size": 2000,
+    "num_workers": 0,
+    "pin_memory": true,
+    "random_erase": 0.25,
+    "rand_augment": false,
+    "mean": [
+      0.4914,
+      0.4822,
+      0.4465
+    ],
+    "std": [
+      0.247,
+      0.2435,
+      0.2616
+    ]
+  },
+  "model": {
+    "name": "atto",
+    "depths": null,
+    "dims": null,
+    "drop_path_rate": 0.1,
+    "layer_scale_init_value": 1e-06,
+    "stem_mode": "conv",
+    "head_init_scale": 1.0
+  },
+  "train": {
+    "epochs": 10,
+    "batch_size": 128,
+    "auto_batch_size": true,
+    "max_batch_size": 512,
+    "min_batch_size": 8,
+    "lr": 0.002,
+    "min_lr": 1e-05,
+    "weight_decay": 0.05,
+    "warmup_epochs": 2,
+    "label_smoothing": 0.1,
+    "grad_clip": 1.0,
+    "use_mixup": false,
+    "mixup_prob": 0.5,
+    "mixup_alpha": 0.8,
+    "cutmix_alpha": 1.0,
+    "amp": true,
+    "seed": 42,
+    "deterministic": false,
+    "plot_every": 2,
+    "early_stop_patience": 0,
+    "resume": null
+  },
+  "output_dir": "../05_results",
+  "device": "auto",
+  "exp_name": "mvp_atto_subset5k"
+}

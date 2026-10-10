@@ -1,0 +1,1 @@
+Your AI assignment report by using English in Word/PDF format should contain the following details (1) how you ask AI tools to find the algorithm, (2) algorithm description, (3) how AI implements the algorithm, (4) experiment settings and results, (5) what you have learnt from this AI assignment, and (6) a webpage link of your source codes. 

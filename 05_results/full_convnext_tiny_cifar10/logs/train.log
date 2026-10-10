@@ -1,0 +1,729 @@
+[12:16:35] INFO  | ================================================================================================
+[12:16:35] INFO  | 实验名称：convnext_cifar10
+[12:16:35] INFO  | 输出根目录：D:\Document\workbuddy-ai\CISC3024PRAI\Assignment2\05_results
+[12:16:35] INFO  | 实验隔离标签：full_convnext_tiny_cifar10 -> 本次产物写入 D:\Document\workbuddy-ai\CISC3024PRAI\Assignment2\05_results\full_convnext_tiny_cifar10
+[12:16:35] INFO  | ================================================================================================
+[12:16:35] INFO  | [device] CUDA:0 | NVIDIA GeForce RTX 4060 Laptop GPU | 显存 8.0 GB
+[12:16:35] INFO  | [seed] 全局随机种子 = 42 | 确定性模式 = False
+[12:16:35] INFO  | [batch-size] 开始显存探测：期望 128，候选 128，范围 [8, 512]，AMP=True
+[12:16:42] INFO  | [batch-size] batch size = 256 探针峰值 5560 MB 超过可用显存 7000 MB 的 70%（WDDM 允许过度提交，需为训练留余量），停止放大，最终采用 128
+[12:16:42] INFO  | [batch-size] 最终确定 batch size = 128（探针峰值显存 2883 MB，当前可用显存 7000 MB，GPU 总显存 8.0 GB）
+[12:16:42] INFO  | [data] CIFAR-10 缓存状态：已就绪（跳过下载与重复校验）
+[12:16:42] INFO  | [data] 加载 CIFAR-10 训练集底座（transform=None，目录 D:\Document\workbuddy-ai\CISC3024PRAI\Assignment2\04_data\cifar10）
+[12:16:43] INFO  | [data] 加载 CIFAR-10 测试集底座（transform=None，目录 D:\Document\workbuddy-ai\CISC3024PRAI\Assignment2\04_data\cifar10）
+[12:16:44] INFO  | [data] 数据集 划分完成 | 训练 45000 张 | 验证 5000 张 | 测试 10000 张 | 类别数 10
+[12:16:44] INFO  | [data] DataLoader | train batch=128 | eval batch=256 | num_workers=4 | pin_memory=True
+[12:16:59] INFO  | [figures] 数据样例图已保存：../05_results\full_convnext_tiny_cifar10\figures\data_samples.png
+[12:17:00] INFO  | [model] 结构摘要：
+[12:17:00] INFO  |     ConvNeXt-tiny | stem=conv | drop_path=0.1
+[12:17:00] INFO  |       input            : 3 x 32 x 32
+[12:17:00] INFO  |       stage 1          : 32 x 32 x 96   | blocks=3
+[12:17:00] INFO  |       stage 2          : 16 x 16 x 192  | blocks=3
+[12:17:00] INFO  |       stage 3          :  8 x  8 x 384  | blocks=9
+[12:17:00] INFO  |       stage 4          :  4 x  4 x 768  | blocks=3
+[12:17:00] INFO  |       head             : global average pool -> Linear(768 -> 10)
+[12:17:00] INFO  | [model] 总参数量 = 27.83 M（27,825,802）| 可训练参数量 = 27.83 M
+[12:17:00] INFO  | ================================================================================================
+[12:17:00] INFO  | 开始训练：epochs=60（本轮从 epoch 1 开始）| batch_size=128 x accum=1 (等效 batch=128)
+[12:17:00] INFO  | 优化器=AdamW(lr=0.001, wd=0.05) | 调度=warmup(5) + cosine -> 1e-05 | AMP=True（autocast bfloat16 + GradScaler） | Mixup/CutMix=True | 参数量=27.83M
+[12:17:00] INFO  | ================================================================================================
+[12:17:00] INFO  | [Epoch 1/60] lr=2.000e-04
+[12:17:29] INFO  |   epoch   1 | step   50/352 | loss 2.1813 | acc 19.77% | lr 2.00e-04
+[12:17:42] INFO  |   epoch   1 | step  100/352 | loss 2.1468 | acc 22.61% | lr 2.00e-04
+[12:17:57] INFO  |   epoch   1 | step  150/352 | loss 2.1185 | acc 24.08% | lr 2.00e-04
+[12:18:11] INFO  |   epoch   1 | step  200/352 | loss 2.1024 | acc 25.07% | lr 2.00e-04
+[12:18:26] INFO  |   epoch   1 | step  250/352 | loss 2.0783 | acc 26.36% | lr 2.00e-04
+[12:18:42] INFO  |   epoch   1 | step  300/352 | loss 2.0548 | acc 27.61% | lr 2.00e-04
+[12:18:57] INFO  |   epoch   1 | step  350/352 | loss 2.0320 | acc 28.80% | lr 2.00e-04
+[12:19:01] INFO  |   epoch   1 | step  352/352 | loss 2.0320 | acc 28.79% | lr 2.00e-04 | 已用时 2m 01s
+[12:19:04] INFO  | [Epoch 1/60] 完成 | train_loss=2.0320 train_acc=28.79% | val_loss=1.7330 val_top1=43.02% val_top5=89.70% | 用时 2m 01s | amp_scale=6.554e+04
+[12:19:07] INFO  |   -> 刷新最优验证准确率：43.02%（已保存 best.pt）
+[12:19:07] INFO  | [Epoch 2/60] lr=4.000e-04
+[12:19:23] INFO  |   epoch   2 | step   50/352 | loss 1.9629 | acc 33.06% | lr 4.00e-04
+[12:19:39] INFO  |   epoch   2 | step  100/352 | loss 1.9450 | acc 33.76% | lr 4.00e-04
+[12:19:55] INFO  |   epoch   2 | step  150/352 | loss 1.9255 | acc 34.46% | lr 4.00e-04
+[12:20:12] INFO  |   epoch   2 | step  200/352 | loss 1.9099 | acc 35.26% | lr 4.00e-04
+[12:20:29] INFO  |   epoch   2 | step  250/352 | loss 1.9122 | acc 35.20% | lr 4.00e-04
+[12:20:46] INFO  |   epoch   2 | step  300/352 | loss 1.8947 | acc 35.90% | lr 4.00e-04
+[12:21:03] INFO  |   epoch   2 | step  350/352 | loss 1.8804 | acc 36.73% | lr 4.00e-04
+[12:21:04] INFO  |   epoch   2 | step  352/352 | loss 1.8810 | acc 36.73% | lr 4.00e-04 | 已用时 1m 58s
+[12:21:08] INFO  | [Epoch 2/60] 完成 | train_loss=1.8810 train_acc=36.73% | val_loss=1.5759 val_top1=51.36% val_top5=93.16% | 用时 1m 58s | amp_scale=6.554e+04
+[12:21:10] INFO  |   -> 刷新最优验证准确率：51.36%（已保存 best.pt）
+[12:21:10] INFO  | [Epoch 3/60] lr=6.000e-04
+[12:21:28] INFO  |   epoch   3 | step   50/352 | loss 1.8315 | acc 39.31% | lr 6.00e-04
+[12:21:46] INFO  |   epoch   3 | step  100/352 | loss 1.8150 | acc 40.16% | lr 6.00e-04
+[12:22:04] INFO  |   epoch   3 | step  150/352 | loss 1.7854 | acc 41.58% | lr 6.00e-04
+[12:22:22] INFO  |   epoch   3 | step  200/352 | loss 1.7687 | acc 42.49% | lr 6.00e-04
+[12:22:40] INFO  |   epoch   3 | step  250/352 | loss 1.7623 | acc 43.00% | lr 6.00e-04
+[12:22:57] INFO  |   epoch   3 | step  300/352 | loss 1.7497 | acc 43.56% | lr 6.00e-04
+[12:23:15] INFO  |   epoch   3 | step  350/352 | loss 1.7473 | acc 43.87% | lr 6.00e-04
+[12:23:15] INFO  |   epoch   3 | step  352/352 | loss 1.7468 | acc 43.91% | lr 6.00e-04 | 已用时 2m 05s
+[12:23:19] INFO  | [Epoch 3/60] 完成 | train_loss=1.7468 train_acc=43.91% | val_loss=1.4245 val_top1=58.96% val_top5=94.74% | 用时 2m 05s | amp_scale=6.554e+04
+[12:23:22] INFO  |   -> 刷新最优验证准确率：58.96%（已保存 best.pt）
+[12:23:22] INFO  | [Epoch 4/60] lr=8.000e-04
+[12:23:40] INFO  |   epoch   4 | step   50/352 | loss 1.6672 | acc 47.24% | lr 8.00e-04
+[12:23:57] INFO  |   epoch   4 | step  100/352 | loss 1.6934 | acc 46.30% | lr 8.00e-04
+[12:24:15] INFO  |   epoch   4 | step  150/352 | loss 1.6738 | acc 47.43% | lr 8.00e-04
+[12:24:33] INFO  |   epoch   4 | step  200/352 | loss 1.6725 | acc 47.66% | lr 8.00e-04
+[12:24:50] INFO  |   epoch   4 | step  250/352 | loss 1.6755 | acc 47.55% | lr 8.00e-04
+[12:25:08] INFO  |   epoch   4 | step  300/352 | loss 1.6692 | acc 47.92% | lr 8.00e-04
+[12:25:26] INFO  |   epoch   4 | step  350/352 | loss 1.6671 | acc 48.05% | lr 8.00e-04
+[12:25:27] INFO  |   epoch   4 | step  352/352 | loss 1.6675 | acc 48.04% | lr 8.00e-04 | 已用时 2m 05s
+[12:25:31] INFO  | [Epoch 4/60] 完成 | train_loss=1.6675 train_acc=48.04% | val_loss=1.3520 val_top1=62.28% val_top5=95.74% | 用时 2m 05s | amp_scale=6.554e+04
+[12:25:34] INFO  |   -> 刷新最优验证准确率：62.28%（已保存 best.pt）
+[12:25:34] INFO  | [Epoch 5/60] lr=1.000e-03
+[12:25:52] INFO  |   epoch   5 | step   50/352 | loss 1.6350 | acc 50.50% | lr 1.00e-03
+[12:26:10] INFO  |   epoch   5 | step  100/352 | loss 1.6529 | acc 49.54% | lr 1.00e-03
+[12:26:28] INFO  |   epoch   5 | step  150/352 | loss 1.6742 | acc 48.50% | lr 1.00e-03
+[12:26:46] INFO  |   epoch   5 | step  200/352 | loss 1.6729 | acc 48.59% | lr 1.00e-03
+[12:27:04] INFO  |   epoch   5 | step  250/352 | loss 1.6550 | acc 49.51% | lr 1.00e-03
+[12:27:22] INFO  |   epoch   5 | step  300/352 | loss 1.6479 | acc 49.67% | lr 1.00e-03
+[12:27:41] INFO  |   epoch   5 | step  350/352 | loss 1.6345 | acc 50.27% | lr 1.00e-03
+[12:27:42] INFO  |   epoch   5 | step  352/352 | loss 1.6347 | acc 50.27% | lr 1.00e-03 | 已用时 2m 08s
+[12:27:45] INFO  | [Epoch 5/60] 完成 | train_loss=1.6347 train_acc=50.27% | val_loss=1.2903 val_top1=65.16% val_top5=96.70% | 用时 2m 08s | amp_scale=6.554e+04
+[12:27:48] INFO  |   -> 刷新最优验证准确率：65.16%（已保存 best.pt）
+[12:27:48] INFO  | [Epoch 6/60] lr=1.000e-03
+[12:28:06] INFO  |   epoch   6 | step   50/352 | loss 1.4852 | acc 56.25% | lr 1.00e-03
+[12:28:25] INFO  |   epoch   6 | step  100/352 | loss 1.5308 | acc 54.60% | lr 1.00e-03
+[12:28:43] INFO  |   epoch   6 | step  150/352 | loss 1.5218 | acc 55.08% | lr 1.00e-03
+[12:29:01] INFO  |   epoch   6 | step  200/352 | loss 1.5275 | acc 54.93% | lr 1.00e-03
+[12:29:19] INFO  |   epoch   6 | step  250/352 | loss 1.5258 | acc 55.24% | lr 1.00e-03
+[12:29:37] INFO  |   epoch   6 | step  300/352 | loss 1.5221 | acc 55.53% | lr 1.00e-03
+[12:29:54] INFO  |   epoch   6 | step  350/352 | loss 1.5255 | acc 55.37% | lr 1.00e-03
+[12:29:55] INFO  |   epoch   6 | step  352/352 | loss 1.5254 | acc 55.39% | lr 1.00e-03 | 已用时 2m 07s
+[12:29:58] INFO  | [Epoch 6/60] 完成 | train_loss=1.5254 train_acc=55.39% | val_loss=1.1700 val_top1=70.16% val_top5=97.34% | 用时 2m 07s | amp_scale=1.311e+05
+[12:30:01] INFO  |   -> 刷新最优验证准确率：70.16%（已保存 best.pt）
+[12:30:01] INFO  | [Epoch 7/60] lr=9.992e-04
+[12:30:19] INFO  |   epoch   7 | step   50/352 | loss 1.5883 | acc 53.54% | lr 9.99e-04
+[12:30:37] INFO  |   epoch   7 | step  100/352 | loss 1.5162 | acc 56.45% | lr 9.99e-04
+[12:30:55] INFO  |   epoch   7 | step  150/352 | loss 1.5069 | acc 56.66% | lr 9.99e-04
+[12:31:13] INFO  |   epoch   7 | step  200/352 | loss 1.4998 | acc 57.14% | lr 9.99e-04
+[12:31:30] INFO  |   epoch   7 | step  250/352 | loss 1.5009 | acc 57.12% | lr 9.99e-04
+[12:31:48] INFO  |   epoch   7 | step  300/352 | loss 1.4970 | acc 57.33% | lr 9.99e-04
+[12:32:06] INFO  |   epoch   7 | step  350/352 | loss 1.4994 | acc 57.25% | lr 9.99e-04
+[12:32:07] INFO  |   epoch   7 | step  352/352 | loss 1.4979 | acc 57.30% | lr 9.99e-04 | 已用时 2m 06s
+[12:32:10] INFO  | [Epoch 7/60] 完成 | train_loss=1.4979 train_acc=57.30% | val_loss=1.1244 val_top1=73.00% val_top5=98.00% | 用时 2m 06s | amp_scale=1.311e+05
+[12:32:13] INFO  |   -> 刷新最优验证准确率：73.00%（已保存 best.pt）
+[12:32:13] INFO  | [Epoch 8/60] lr=9.968e-04
+[12:32:32] INFO  |   epoch   8 | step   50/352 | loss 1.4913 | acc 57.30% | lr 9.97e-04
+[12:32:49] INFO  |   epoch   8 | step  100/352 | loss 1.4682 | acc 58.64% | lr 9.97e-04
+[12:33:08] INFO  |   epoch   8 | step  150/352 | loss 1.4904 | acc 57.57% | lr 9.97e-04
+[12:33:26] INFO  |   epoch   8 | step  200/352 | loss 1.4694 | acc 58.35% | lr 9.97e-04
+[12:33:44] INFO  |   epoch   8 | step  250/352 | loss 1.4550 | acc 58.96% | lr 9.97e-04
+[12:34:02] INFO  |   epoch   8 | step  300/352 | loss 1.4577 | acc 58.96% | lr 9.97e-04
+[12:34:20] INFO  |   epoch   8 | step  350/352 | loss 1.4397 | acc 59.79% | lr 9.97e-04
+[12:34:21] INFO  |   epoch   8 | step  352/352 | loss 1.4388 | acc 59.82% | lr 9.97e-04 | 已用时 2m 08s
+[12:34:24] INFO  | [Epoch 8/60] 完成 | train_loss=1.4388 train_acc=59.82% | val_loss=1.1215 val_top1=72.16% val_top5=97.76% | 用时 2m 08s | amp_scale=1.311e+05
+[12:34:26] INFO  | [Epoch 9/60] lr=9.928e-04
+[12:34:44] INFO  |   epoch   9 | step   50/352 | loss 1.3979 | acc 61.61% | lr 9.93e-04
+[12:35:02] INFO  |   epoch   9 | step  100/352 | loss 1.4144 | acc 61.32% | lr 9.93e-04
+[12:35:20] INFO  |   epoch   9 | step  150/352 | loss 1.4354 | acc 60.51% | lr 9.93e-04
+[12:35:38] INFO  |   epoch   9 | step  200/352 | loss 1.4249 | acc 60.80% | lr 9.93e-04
+[12:35:56] INFO  |   epoch   9 | step  250/352 | loss 1.4027 | acc 61.67% | lr 9.93e-04
+[12:36:15] INFO  |   epoch   9 | step  300/352 | loss 1.3859 | acc 62.30% | lr 9.93e-04
+[12:36:32] INFO  |   epoch   9 | step  350/352 | loss 1.3749 | acc 62.83% | lr 9.93e-04
+[12:36:33] INFO  |   epoch   9 | step  352/352 | loss 1.3738 | acc 62.87% | lr 9.93e-04 | 已用时 2m 07s
+[12:36:36] INFO  | [Epoch 9/60] 完成 | train_loss=1.3738 train_acc=62.87% | val_loss=1.0040 val_top1=77.56% val_top5=98.90% | 用时 2m 07s | amp_scale=1.311e+05
+[12:36:39] INFO  |   -> 刷新最优验证准确率：77.56%（已保存 best.pt）
+[12:36:39] INFO  | [Epoch 10/60] lr=9.871e-04
+[12:36:57] INFO  |   epoch  10 | step   50/352 | loss 1.3564 | acc 64.28% | lr 9.87e-04
+[12:37:15] INFO  |   epoch  10 | step  100/352 | loss 1.3281 | acc 65.61% | lr 9.87e-04
+[12:37:32] INFO  |   epoch  10 | step  150/352 | loss 1.3286 | acc 65.29% | lr 9.87e-04
+[12:37:50] INFO  |   epoch  10 | step  200/352 | loss 1.3441 | acc 64.87% | lr 9.87e-04
+[12:38:08] INFO  |   epoch  10 | step  250/352 | loss 1.3366 | acc 65.06% | lr 9.87e-04
+[12:38:26] INFO  |   epoch  10 | step  300/352 | loss 1.3272 | acc 65.48% | lr 9.87e-04
+[12:38:45] INFO  |   epoch  10 | step  350/352 | loss 1.3323 | acc 65.26% | lr 9.87e-04
+[12:38:45] INFO  |   epoch  10 | step  352/352 | loss 1.3322 | acc 65.29% | lr 9.87e-04 | 已用时 2m 06s
+[12:38:49] INFO  | [Epoch 10/60] 完成 | train_loss=1.3322 train_acc=65.29% | val_loss=0.9730 val_top1=79.72% val_top5=98.98% | 用时 2m 06s | amp_scale=1.311e+05
+[12:38:52] INFO  |   -> 刷新最优验证准确率：79.72%（已保存 best.pt）
+[12:38:54] INFO  | [Epoch 11/60] lr=9.799e-04
+[12:39:11] INFO  |   epoch  11 | step   50/352 | loss 1.2979 | acc 66.78% | lr 9.80e-04
+[12:39:29] INFO  |   epoch  11 | step  100/352 | loss 1.2550 | acc 68.86% | lr 9.80e-04
+[12:39:46] INFO  |   epoch  11 | step  150/352 | loss 1.2621 | acc 68.58% | lr 9.80e-04
+[12:40:05] INFO  |   epoch  11 | step  200/352 | loss 1.2848 | acc 67.62% | lr 9.80e-04
+[12:40:23] INFO  |   epoch  11 | step  250/352 | loss 1.2853 | acc 67.60% | lr 9.80e-04
+[12:40:41] INFO  |   epoch  11 | step  300/352 | loss 1.2853 | acc 67.56% | lr 9.80e-04
+[12:40:59] INFO  |   epoch  11 | step  350/352 | loss 1.2930 | acc 67.17% | lr 9.80e-04
+[12:40:59] INFO  |   epoch  11 | step  352/352 | loss 1.2923 | acc 67.21% | lr 9.80e-04 | 已用时 2m 05s
+[12:41:03] INFO  | [Epoch 11/60] 完成 | train_loss=1.2923 train_acc=67.21% | val_loss=0.9407 val_top1=81.20% val_top5=98.86% | 用时 2m 05s | amp_scale=1.311e+05
+[12:41:06] INFO  |   -> 刷新最优验证准确率：81.20%（已保存 best.pt）
+[12:41:06] INFO  | [Epoch 12/60] lr=9.712e-04
+[12:41:24] INFO  |   epoch  12 | step   50/352 | loss 1.2757 | acc 68.15% | lr 9.71e-04
+[12:41:42] INFO  |   epoch  12 | step  100/352 | loss 1.2661 | acc 68.49% | lr 9.71e-04
+[12:42:00] INFO  |   epoch  12 | step  150/352 | loss 1.2549 | acc 69.12% | lr 9.71e-04
+[12:42:18] INFO  |   epoch  12 | step  200/352 | loss 1.2727 | acc 68.28% | lr 9.71e-04
+[12:42:36] INFO  |   epoch  12 | step  250/352 | loss 1.2806 | acc 67.95% | lr 9.71e-04
+[12:42:54] INFO  |   epoch  12 | step  300/352 | loss 1.2792 | acc 67.97% | lr 9.71e-04
+[12:43:12] INFO  |   epoch  12 | step  350/352 | loss 1.2818 | acc 67.81% | lr 9.71e-04
+[12:43:13] INFO  |   epoch  12 | step  352/352 | loss 1.2837 | acc 67.73% | lr 9.71e-04 | 已用时 2m 07s
+[12:43:17] INFO  | [Epoch 12/60] 完成 | train_loss=1.2837 train_acc=67.73% | val_loss=0.9150 val_top1=81.86% val_top5=99.08% | 用时 2m 07s | amp_scale=2.621e+05
+[12:43:20] INFO  |   -> 刷新最优验证准确率：81.86%（已保存 best.pt）
+[12:43:20] INFO  | [Epoch 13/60] lr=9.610e-04
+[12:43:38] INFO  |   epoch  13 | step   50/352 | loss 1.2518 | acc 69.05% | lr 9.61e-04
+[12:43:56] INFO  |   epoch  13 | step  100/352 | loss 1.2681 | acc 68.78% | lr 9.61e-04
+[12:44:14] INFO  |   epoch  13 | step  150/352 | loss 1.2769 | acc 67.99% | lr 9.61e-04
+[12:44:32] INFO  |   epoch  13 | step  200/352 | loss 1.2664 | acc 68.38% | lr 9.61e-04
+[12:44:51] INFO  |   epoch  13 | step  250/352 | loss 1.2626 | acc 68.62% | lr 9.61e-04
+[12:45:09] INFO  |   epoch  13 | step  300/352 | loss 1.2556 | acc 68.96% | lr 9.61e-04
+[12:45:28] INFO  |   epoch  13 | step  350/352 | loss 1.2584 | acc 68.86% | lr 9.61e-04
+[12:45:28] INFO  |   epoch  13 | step  352/352 | loss 1.2573 | acc 68.91% | lr 9.61e-04 | 已用时 2m 08s
+[12:45:32] INFO  | [Epoch 13/60] 完成 | train_loss=1.2573 train_acc=68.91% | val_loss=0.8900 val_top1=82.60% val_top5=99.24% | 用时 2m 08s | amp_scale=2.621e+05
+[12:45:34] INFO  |   -> 刷新最优验证准确率：82.60%（已保存 best.pt）
+[12:45:34] INFO  | [Epoch 14/60] lr=9.492e-04
+[12:45:52] INFO  |   epoch  14 | step   50/352 | loss 1.2209 | acc 70.81% | lr 9.49e-04
+[12:46:11] INFO  |   epoch  14 | step  100/352 | loss 1.2555 | acc 69.30% | lr 9.49e-04
+[12:46:29] INFO  |   epoch  14 | step  150/352 | loss 1.2639 | acc 68.99% | lr 9.49e-04
+[12:46:53] INFO  |   epoch  14 | step  200/352 | loss 1.2453 | acc 69.71% | lr 9.49e-04
+[12:47:14] INFO  |   epoch  14 | step  250/352 | loss 1.2553 | acc 69.23% | lr 9.49e-04
+[12:47:31] INFO  |   epoch  14 | step  300/352 | loss 1.2395 | acc 69.87% | lr 9.49e-04
+[12:47:49] INFO  |   epoch  14 | step  350/352 | loss 1.2367 | acc 70.01% | lr 9.49e-04
+[12:47:49] INFO  |   epoch  14 | step  352/352 | loss 1.2365 | acc 70.02% | lr 9.49e-04 | 已用时 2m 15s
+[12:47:53] INFO  | [Epoch 14/60] 完成 | train_loss=1.2365 train_acc=70.02% | val_loss=0.8573 val_top1=84.26% val_top5=99.30% | 用时 2m 15s | amp_scale=2.621e+05
+[12:47:56] INFO  |   -> 刷新最优验证准确率：84.26%（已保存 best.pt）
+[12:47:56] INFO  | [Epoch 15/60] lr=9.360e-04
+[12:48:14] INFO  |   epoch  15 | step   50/352 | loss 1.3589 | acc 64.74% | lr 9.36e-04
+[12:48:31] INFO  |   epoch  15 | step  100/352 | loss 1.2808 | acc 68.20% | lr 9.36e-04
+[12:48:49] INFO  |   epoch  15 | step  150/352 | loss 1.2652 | acc 68.75% | lr 9.36e-04
+[12:49:08] INFO  |   epoch  15 | step  200/352 | loss 1.2587 | acc 69.24% | lr 9.36e-04
+[12:49:25] INFO  |   epoch  15 | step  250/352 | loss 1.2566 | acc 69.38% | lr 9.36e-04
+[12:49:44] INFO  |   epoch  15 | step  300/352 | loss 1.2487 | acc 69.64% | lr 9.36e-04
+[12:50:01] INFO  |   epoch  15 | step  350/352 | loss 1.2422 | acc 69.98% | lr 9.36e-04
+[12:50:02] INFO  |   epoch  15 | step  352/352 | loss 1.2405 | acc 70.06% | lr 9.36e-04 | 已用时 2m 06s
+[12:50:05] INFO  | [Epoch 15/60] 完成 | train_loss=1.2405 train_acc=70.06% | val_loss=0.8621 val_top1=84.74% val_top5=99.18% | 用时 2m 06s | amp_scale=2.621e+05
+[12:50:08] INFO  |   -> 刷新最优验证准确率：84.74%（已保存 best.pt）
+[12:50:08] INFO  | [Epoch 16/60] lr=9.214e-04
+[12:50:25] INFO  |   epoch  16 | step   50/352 | loss 1.0905 | acc 75.94% | lr 9.21e-04
+[12:50:43] INFO  |   epoch  16 | step  100/352 | loss 1.0952 | acc 75.61% | lr 9.21e-04
+[12:51:00] INFO  |   epoch  16 | step  150/352 | loss 1.1489 | acc 73.62% | lr 9.21e-04
+[12:51:17] INFO  |   epoch  16 | step  200/352 | loss 1.1651 | acc 73.00% | lr 9.21e-04
+[12:51:35] INFO  |   epoch  16 | step  250/352 | loss 1.1514 | acc 73.58% | lr 9.21e-04
+[12:51:53] INFO  |   epoch  16 | step  300/352 | loss 1.1582 | acc 73.44% | lr 9.21e-04
+[12:52:11] INFO  |   epoch  16 | step  350/352 | loss 1.1588 | acc 73.46% | lr 9.21e-04
+[12:52:12] INFO  |   epoch  16 | step  352/352 | loss 1.1612 | acc 73.35% | lr 9.21e-04 | 已用时 2m 04s
+[12:52:16] INFO  | [Epoch 16/60] 完成 | train_loss=1.1612 train_acc=73.35% | val_loss=0.8627 val_top1=85.02% val_top5=99.02% | 用时 2m 04s | amp_scale=2.621e+05
+[12:52:19] INFO  |   -> 刷新最优验证准确率：85.02%（已保存 best.pt）
+[12:52:19] INFO  | [Epoch 17/60] lr=9.055e-04
+[12:52:36] INFO  |   epoch  17 | step   50/352 | loss 1.1619 | acc 73.61% | lr 9.05e-04
+[12:52:53] INFO  |   epoch  17 | step  100/352 | loss 1.2157 | acc 71.15% | lr 9.05e-04
+[12:53:11] INFO  |   epoch  17 | step  150/352 | loss 1.2284 | acc 70.89% | lr 9.05e-04
+[12:53:29] INFO  |   epoch  17 | step  200/352 | loss 1.1990 | acc 72.01% | lr 9.05e-04
+[12:53:47] INFO  |   epoch  17 | step  250/352 | loss 1.2093 | acc 71.63% | lr 9.05e-04
+[12:54:06] INFO  |   epoch  17 | step  300/352 | loss 1.1965 | acc 72.11% | lr 9.05e-04
+[12:54:24] INFO  |   epoch  17 | step  350/352 | loss 1.1831 | acc 72.56% | lr 9.05e-04
+[12:54:25] INFO  |   epoch  17 | step  352/352 | loss 1.1827 | acc 72.58% | lr 9.05e-04 | 已用时 2m 07s
+[12:54:29] INFO  | [Epoch 17/60] 完成 | train_loss=1.1827 train_acc=72.58% | val_loss=0.8209 val_top1=85.96% val_top5=99.44% | 用时 2m 07s | amp_scale=2.621e+05
+[12:54:31] INFO  |   -> 刷新最优验证准确率：85.96%（已保存 best.pt）
+[12:54:31] INFO  | [Epoch 18/60] lr=8.882e-04
+[12:54:49] INFO  |   epoch  18 | step   50/352 | loss 1.0810 | acc 76.62% | lr 8.88e-04
+[12:55:07] INFO  |   epoch  18 | step  100/352 | loss 1.0814 | acc 76.93% | lr 8.88e-04
+[12:55:23] INFO  |   epoch  18 | step  150/352 | loss 1.1242 | acc 75.12% | lr 8.88e-04
+[12:55:40] INFO  |   epoch  18 | step  200/352 | loss 1.1085 | acc 75.78% | lr 8.88e-04
+[12:55:57] INFO  |   epoch  18 | step  250/352 | loss 1.1225 | acc 75.24% | lr 8.88e-04
+[12:56:14] INFO  |   epoch  18 | step  300/352 | loss 1.1272 | acc 75.08% | lr 8.88e-04
+[12:56:31] INFO  |   epoch  18 | step  350/352 | loss 1.1247 | acc 75.17% | lr 8.88e-04
+[12:56:32] INFO  |   epoch  18 | step  352/352 | loss 1.1239 | acc 75.20% | lr 8.88e-04 | 已用时 2m 01s
+[12:56:35] INFO  | [Epoch 18/60] 完成 | train_loss=1.1239 train_acc=75.20% | val_loss=0.7961 val_top1=87.54% val_top5=99.54% | 用时 2m 01s | amp_scale=5.243e+05
+[12:56:37] INFO  |   -> 刷新最优验证准确率：87.54%（已保存 best.pt）
+[12:56:37] INFO  | [Epoch 19/60] lr=8.697e-04
+[12:56:55] INFO  |   epoch  19 | step   50/352 | loss 1.0857 | acc 76.86% | lr 8.70e-04
+[12:57:12] INFO  |   epoch  19 | step  100/352 | loss 1.1297 | acc 75.14% | lr 8.70e-04
+[12:57:29] INFO  |   epoch  19 | step  150/352 | loss 1.1614 | acc 73.56% | lr 8.70e-04
+[12:57:46] INFO  |   epoch  19 | step  200/352 | loss 1.1504 | acc 74.10% | lr 8.70e-04
+[12:58:03] INFO  |   epoch  19 | step  250/352 | loss 1.1270 | acc 75.06% | lr 8.70e-04
+[12:58:20] INFO  |   epoch  19 | step  300/352 | loss 1.1312 | acc 74.87% | lr 8.70e-04
+[12:58:38] INFO  |   epoch  19 | step  350/352 | loss 1.1424 | acc 74.42% | lr 8.70e-04
+[12:58:38] INFO  |   epoch  19 | step  352/352 | loss 1.1408 | acc 74.48% | lr 8.70e-04 | 已用时 2m 01s
+[12:58:42] INFO  | [Epoch 19/60] 完成 | train_loss=1.1408 train_acc=74.48% | val_loss=0.7925 val_top1=87.50% val_top5=99.56% | 用时 2m 01s | amp_scale=5.243e+05
+[12:58:43] INFO  | [Epoch 20/60] lr=8.500e-04
+[12:59:00] INFO  |   epoch  20 | step   50/352 | loss 1.0463 | acc 78.42% | lr 8.50e-04
+[12:59:16] INFO  |   epoch  20 | step  100/352 | loss 1.0463 | acc 78.52% | lr 8.50e-04
+[12:59:34] INFO  |   epoch  20 | step  150/352 | loss 1.1002 | acc 76.40% | lr 8.50e-04
+[12:59:51] INFO  |   epoch  20 | step  200/352 | loss 1.0942 | acc 76.68% | lr 8.50e-04
+[13:00:08] INFO  |   epoch  20 | step  250/352 | loss 1.1015 | acc 76.35% | lr 8.50e-04
+[13:00:25] INFO  |   epoch  20 | step  300/352 | loss 1.1100 | acc 76.06% | lr 8.50e-04
+[13:00:42] INFO  |   epoch  20 | step  350/352 | loss 1.1148 | acc 75.93% | lr 8.50e-04
+[13:00:43] INFO  |   epoch  20 | step  352/352 | loss 1.1136 | acc 75.98% | lr 8.50e-04 | 已用时 2m 00s
+[13:00:46] INFO  | [Epoch 20/60] 完成 | train_loss=1.1136 train_acc=75.98% | val_loss=0.7948 val_top1=87.92% val_top5=99.46% | 用时 2m 00s | amp_scale=5.243e+05
+[13:00:49] INFO  |   -> 刷新最优验证准确率：87.92%（已保存 best.pt）
+[13:00:50] INFO  | [Epoch 21/60] lr=8.292e-04
+[13:01:07] INFO  |   epoch  21 | step   50/352 | loss 1.1983 | acc 71.82% | lr 8.29e-04
+[13:01:23] INFO  |   epoch  21 | step  100/352 | loss 1.1820 | acc 72.77% | lr 8.29e-04
+[13:01:39] INFO  |   epoch  21 | step  150/352 | loss 1.1097 | acc 75.79% | lr 8.29e-04
+[13:01:56] INFO  |   epoch  21 | step  200/352 | loss 1.1238 | acc 75.29% | lr 8.29e-04
+[13:02:13] INFO  |   epoch  21 | step  250/352 | loss 1.1123 | acc 75.81% | lr 8.29e-04
+[13:02:29] INFO  |   epoch  21 | step  300/352 | loss 1.1298 | acc 75.21% | lr 8.29e-04
+[13:02:47] INFO  |   epoch  21 | step  350/352 | loss 1.1354 | acc 74.99% | lr 8.29e-04
+[13:02:47] INFO  |   epoch  21 | step  352/352 | loss 1.1350 | acc 75.02% | lr 8.29e-04 | 已用时 1m 57s
+[13:02:50] INFO  | [Epoch 21/60] 完成 | train_loss=1.1350 train_acc=75.02% | val_loss=0.7658 val_top1=88.48% val_top5=99.40% | 用时 1m 57s | amp_scale=5.243e+05
+[13:02:53] INFO  |   -> 刷新最优验证准确率：88.48%（已保存 best.pt）
+[13:02:53] INFO  | [Epoch 22/60] lr=8.073e-04
+[13:03:10] INFO  |   epoch  22 | step   50/352 | loss 1.1614 | acc 73.82% | lr 8.07e-04
+[13:03:27] INFO  |   epoch  22 | step  100/352 | loss 1.1892 | acc 72.64% | lr 8.07e-04
+[13:03:44] INFO  |   epoch  22 | step  150/352 | loss 1.1527 | acc 74.08% | lr 8.07e-04
+[13:04:00] INFO  |   epoch  22 | step  200/352 | loss 1.1499 | acc 74.25% | lr 8.07e-04
+[13:04:17] INFO  |   epoch  22 | step  250/352 | loss 1.1311 | acc 75.10% | lr 8.07e-04
+[13:04:35] INFO  |   epoch  22 | step  300/352 | loss 1.1241 | acc 75.43% | lr 8.07e-04
+[13:04:52] INFO  |   epoch  22 | step  350/352 | loss 1.1157 | acc 75.73% | lr 8.07e-04
+[13:04:53] INFO  |   epoch  22 | step  352/352 | loss 1.1142 | acc 75.78% | lr 8.07e-04 | 已用时 2m 00s
+[13:04:56] INFO  | [Epoch 22/60] 完成 | train_loss=1.1142 train_acc=75.78% | val_loss=0.7712 val_top1=88.54% val_top5=99.42% | 用时 2m 00s | amp_scale=5.243e+05
+[13:04:58] INFO  |   -> 刷新最优验证准确率：88.54%（已保存 best.pt）
+[13:04:58] INFO  | [Epoch 23/60] lr=7.844e-04
+[13:05:16] INFO  |   epoch  23 | step   50/352 | loss 1.1764 | acc 73.34% | lr 7.84e-04
+[13:05:33] INFO  |   epoch  23 | step  100/352 | loss 1.1138 | acc 76.17% | lr 7.84e-04
+[13:05:49] INFO  |   epoch  23 | step  150/352 | loss 1.1217 | acc 75.61% | lr 7.84e-04
+[13:06:06] INFO  |   epoch  23 | step  200/352 | loss 1.1078 | acc 76.29% | lr 7.84e-04
+[13:06:22] INFO  |   epoch  23 | step  250/352 | loss 1.1091 | acc 76.32% | lr 7.84e-04
+[13:06:39] INFO  |   epoch  23 | step  300/352 | loss 1.1144 | acc 76.09% | lr 7.84e-04
+[13:06:56] INFO  |   epoch  23 | step  350/352 | loss 1.1322 | acc 75.34% | lr 7.84e-04
+[13:06:56] INFO  |   epoch  23 | step  352/352 | loss 1.1322 | acc 75.34% | lr 7.84e-04 | 已用时 1m 58s
+[13:06:59] INFO  | [Epoch 23/60] 完成 | train_loss=1.1322 train_acc=75.34% | val_loss=0.8034 val_top1=87.60% val_top5=99.50% | 用时 1m 58s | amp_scale=1.049e+06
+[13:07:01] INFO  | [Epoch 24/60] lr=7.606e-04
+[13:07:18] INFO  |   epoch  24 | step   50/352 | loss 1.1425 | acc 74.75% | lr 7.61e-04
+[13:07:35] INFO  |   epoch  24 | step  100/352 | loss 1.1246 | acc 75.67% | lr 7.61e-04
+[13:07:51] INFO  |   epoch  24 | step  150/352 | loss 1.1111 | acc 76.15% | lr 7.61e-04
+[13:08:09] INFO  |   epoch  24 | step  200/352 | loss 1.0840 | acc 77.32% | lr 7.61e-04
+[13:08:26] INFO  |   epoch  24 | step  250/352 | loss 1.0799 | acc 77.57% | lr 7.61e-04
+[13:08:44] INFO  |   epoch  24 | step  300/352 | loss 1.0896 | acc 77.24% | lr 7.61e-04
+[13:09:00] INFO  |   epoch  24 | step  350/352 | loss 1.0931 | acc 77.06% | lr 7.61e-04
+[13:09:01] INFO  |   epoch  24 | step  352/352 | loss 1.0958 | acc 76.93% | lr 7.61e-04 | 已用时 2m 00s
+[13:09:04] INFO  | [Epoch 24/60] 完成 | train_loss=1.0958 train_acc=76.93% | val_loss=0.7674 val_top1=88.96% val_top5=99.28% | 用时 2m 00s | amp_scale=1.049e+06
+[13:09:07] INFO  |   -> 刷新最优验证准确率：88.96%（已保存 best.pt）
+[13:09:07] INFO  | [Epoch 25/60] lr=7.360e-04
+[13:09:25] INFO  |   epoch  25 | step   50/352 | loss 1.1034 | acc 76.72% | lr 7.36e-04
+[13:09:41] INFO  |   epoch  25 | step  100/352 | loss 1.1320 | acc 75.73% | lr 7.36e-04
+[13:09:58] INFO  |   epoch  25 | step  150/352 | loss 1.1422 | acc 75.09% | lr 7.36e-04
+[13:10:16] INFO  |   epoch  25 | step  200/352 | loss 1.1191 | acc 76.22% | lr 7.36e-04
+[13:10:33] INFO  |   epoch  25 | step  250/352 | loss 1.1191 | acc 76.19% | lr 7.36e-04
+[13:10:50] INFO  |   epoch  25 | step  300/352 | loss 1.1117 | acc 76.43% | lr 7.36e-04
+[13:11:07] INFO  |   epoch  25 | step  350/352 | loss 1.1008 | acc 76.88% | lr 7.36e-04
+[13:11:07] INFO  |   epoch  25 | step  352/352 | loss 1.1023 | acc 76.83% | lr 7.36e-04 | 已用时 2m 00s
+[13:11:10] INFO  | [Epoch 25/60] 完成 | train_loss=1.1023 train_acc=76.83% | val_loss=0.7571 val_top1=89.16% val_top5=99.62% | 用时 2m 00s | amp_scale=1.049e+06
+[13:11:13] INFO  |   -> 刷新最优验证准确率：89.16%（已保存 best.pt）
+[13:11:13] INFO  | [Epoch 26/60] lr=7.106e-04
+[13:11:29] INFO  |   epoch  26 | step   50/352 | loss 1.1401 | acc 75.39% | lr 7.11e-04
+[13:11:45] INFO  |   epoch  26 | step  100/352 | loss 1.0620 | acc 78.58% | lr 7.11e-04
+[13:12:02] INFO  |   epoch  26 | step  150/352 | loss 1.0476 | acc 79.16% | lr 7.11e-04
+[13:12:18] INFO  |   epoch  26 | step  200/352 | loss 1.0429 | acc 79.44% | lr 7.11e-04
+[13:12:35] INFO  |   epoch  26 | step  250/352 | loss 1.0575 | acc 78.84% | lr 7.11e-04
+[13:12:52] INFO  |   epoch  26 | step  300/352 | loss 1.0745 | acc 78.10% | lr 7.11e-04
+[13:13:09] INFO  |   epoch  26 | step  350/352 | loss 1.0634 | acc 78.53% | lr 7.11e-04
+[13:13:09] INFO  |   epoch  26 | step  352/352 | loss 1.0633 | acc 78.52% | lr 7.11e-04 | 已用时 1m 56s
+[13:13:12] INFO  | [Epoch 26/60] 完成 | train_loss=1.0633 train_acc=78.52% | val_loss=0.7551 val_top1=89.68% val_top5=99.46% | 用时 1m 56s | amp_scale=1.049e+06
+[13:13:15] INFO  |   -> 刷新最优验证准确率：89.68%（已保存 best.pt）
+[13:13:15] INFO  | [Epoch 27/60] lr=6.846e-04
+[13:13:32] INFO  |   epoch  27 | step   50/352 | loss 0.9701 | acc 82.33% | lr 6.85e-04
+[13:13:49] INFO  |   epoch  27 | step  100/352 | loss 0.9722 | acc 82.21% | lr 6.85e-04
+[13:14:06] INFO  |   epoch  27 | step  150/352 | loss 1.0143 | acc 80.55% | lr 6.85e-04
+[13:14:23] INFO  |   epoch  27 | step  200/352 | loss 1.0199 | acc 80.33% | lr 6.85e-04
+[13:14:40] INFO  |   epoch  27 | step  250/352 | loss 1.0116 | acc 80.66% | lr 6.85e-04
+[13:14:58] INFO  |   epoch  27 | step  300/352 | loss 1.0117 | acc 80.65% | lr 6.85e-04
+[13:15:15] INFO  |   epoch  27 | step  350/352 | loss 1.0251 | acc 80.05% | lr 6.85e-04
+[13:15:15] INFO  |   epoch  27 | step  352/352 | loss 1.0275 | acc 79.96% | lr 6.85e-04 | 已用时 2m 00s
+[13:15:19] INFO  | [Epoch 27/60] 完成 | train_loss=1.0275 train_acc=79.96% | val_loss=0.7411 val_top1=90.32% val_top5=99.68% | 用时 2m 00s | amp_scale=1.049e+06
+[13:15:21] INFO  |   -> 刷新最优验证准确率：90.32%（已保存 best.pt）
+[13:15:21] INFO  | [Epoch 28/60] lr=6.580e-04
+[13:15:38] INFO  |   epoch  28 | step   50/352 | loss 1.0247 | acc 79.70% | lr 6.58e-04
+[13:15:54] INFO  |   epoch  28 | step  100/352 | loss 1.0419 | acc 79.21% | lr 6.58e-04
+[13:16:11] INFO  |   epoch  28 | step  150/352 | loss 1.0124 | acc 80.36% | lr 6.58e-04
+[13:16:28] INFO  |   epoch  28 | step  200/352 | loss 1.0357 | acc 79.69% | lr 6.58e-04
+[13:16:45] INFO  |   epoch  28 | step  250/352 | loss 1.0678 | acc 78.39% | lr 6.58e-04
+[13:17:02] INFO  |   epoch  28 | step  300/352 | loss 1.0609 | acc 78.66% | lr 6.58e-04
+[13:17:19] INFO  |   epoch  28 | step  350/352 | loss 1.0553 | acc 78.82% | lr 6.58e-04
+[13:17:19] INFO  |   epoch  28 | step  352/352 | loss 1.0539 | acc 78.87% | lr 6.58e-04 | 已用时 1m 58s
+[13:17:23] INFO  | [Epoch 28/60] 完成 | train_loss=1.0539 train_acc=78.87% | val_loss=0.7284 val_top1=90.26% val_top5=99.60% | 用时 1m 58s | amp_scale=1.049e+06
+[13:17:24] INFO  | [Epoch 29/60] lr=6.308e-04
+[13:17:41] INFO  |   epoch  29 | step   50/352 | loss 1.1219 | acc 76.88% | lr 6.31e-04
+[13:17:58] INFO  |   epoch  29 | step  100/352 | loss 1.0522 | acc 79.56% | lr 6.31e-04
+[13:18:14] INFO  |   epoch  29 | step  150/352 | loss 1.0303 | acc 80.24% | lr 6.31e-04
+[13:18:32] INFO  |   epoch  29 | step  200/352 | loss 1.0254 | acc 80.26% | lr 6.31e-04
+[13:18:49] INFO  |   epoch  29 | step  250/352 | loss 1.0386 | acc 79.65% | lr 6.31e-04
+[13:19:06] INFO  |   epoch  29 | step  300/352 | loss 1.0265 | acc 80.13% | lr 6.31e-04
+[13:19:23] INFO  |   epoch  29 | step  350/352 | loss 1.0424 | acc 79.50% | lr 6.31e-04
+[13:19:23] INFO  |   epoch  29 | step  352/352 | loss 1.0406 | acc 79.57% | lr 6.31e-04 | 已用时 2m 00s
+[13:19:27] INFO  | [Epoch 29/60] 完成 | train_loss=1.0406 train_acc=79.57% | val_loss=0.7326 val_top1=90.32% val_top5=99.72% | 用时 2m 00s | amp_scale=2.097e+06
+[13:19:29] INFO  |   -> 刷新最优验证准确率：90.32%（已保存 best.pt）
+[13:19:29] INFO  | [Epoch 30/60] lr=6.033e-04
+[13:19:46] INFO  |   epoch  30 | step   50/352 | loss 1.0026 | acc 81.18% | lr 6.03e-04
+[13:20:02] INFO  |   epoch  30 | step  100/352 | loss 1.0440 | acc 79.63% | lr 6.03e-04
+[13:20:19] INFO  |   epoch  30 | step  150/352 | loss 1.0265 | acc 80.16% | lr 6.03e-04
+[13:20:36] INFO  |   epoch  30 | step  200/352 | loss 1.0401 | acc 79.62% | lr 6.03e-04
+[13:20:53] INFO  |   epoch  30 | step  250/352 | loss 1.0442 | acc 79.30% | lr 6.03e-04
+[13:21:10] INFO  |   epoch  30 | step  300/352 | loss 1.0242 | acc 80.14% | lr 6.03e-04
+[13:21:26] INFO  |   epoch  30 | step  350/352 | loss 1.0112 | acc 80.63% | lr 6.03e-04
+[13:21:26] INFO  |   epoch  30 | step  352/352 | loss 1.0096 | acc 80.70% | lr 6.03e-04 | 已用时 1m 57s
+[13:21:30] INFO  | [Epoch 30/60] 完成 | train_loss=1.0096 train_acc=80.70% | val_loss=0.7225 val_top1=90.74% val_top5=99.66% | 用时 1m 57s | amp_scale=2.097e+06
+[13:21:32] INFO  |   -> 刷新最优验证准确率：90.74%（已保存 best.pt）
+[13:21:33] INFO  | [Epoch 31/60] lr=5.754e-04
+[13:21:50] INFO  |   epoch  31 | step   50/352 | loss 0.9374 | acc 83.74% | lr 5.75e-04
+[13:22:07] INFO  |   epoch  31 | step  100/352 | loss 0.9544 | acc 83.18% | lr 5.75e-04
+[13:22:23] INFO  |   epoch  31 | step  150/352 | loss 1.0135 | acc 80.95% | lr 5.75e-04
+[13:22:40] INFO  |   epoch  31 | step  200/352 | loss 1.0021 | acc 81.40% | lr 5.75e-04
+[13:22:57] INFO  |   epoch  31 | step  250/352 | loss 1.0082 | acc 81.17% | lr 5.75e-04
+[13:23:14] INFO  |   epoch  31 | step  300/352 | loss 1.0191 | acc 80.62% | lr 5.75e-04
+[13:23:31] INFO  |   epoch  31 | step  350/352 | loss 1.0200 | acc 80.56% | lr 5.75e-04
+[13:23:32] INFO  |   epoch  31 | step  352/352 | loss 1.0184 | acc 80.63% | lr 5.75e-04 | 已用时 1m 59s
+[13:23:36] INFO  | [Epoch 31/60] 完成 | train_loss=1.0184 train_acc=80.63% | val_loss=0.7195 val_top1=90.86% val_top5=99.64% | 用时 1m 59s | amp_scale=2.097e+06
+[13:23:38] INFO  |   -> 刷新最优验证准确率：90.86%（已保存 best.pt）
+[13:23:38] INFO  | [Epoch 32/60] lr=5.474e-04
+[13:23:55] INFO  |   epoch  32 | step   50/352 | loss 1.0050 | acc 80.69% | lr 5.47e-04
+[13:24:11] INFO  |   epoch  32 | step  100/352 | loss 0.9471 | acc 83.29% | lr 5.47e-04
+[13:24:28] INFO  |   epoch  32 | step  150/352 | loss 0.9677 | acc 82.33% | lr 5.47e-04
+[13:24:45] INFO  |   epoch  32 | step  200/352 | loss 0.9628 | acc 82.48% | lr 5.47e-04
+[13:25:02] INFO  |   epoch  32 | step  250/352 | loss 0.9613 | acc 82.58% | lr 5.47e-04
+[13:25:19] INFO  |   epoch  32 | step  300/352 | loss 0.9563 | acc 82.82% | lr 5.47e-04
+[13:25:37] INFO  |   epoch  32 | step  350/352 | loss 0.9568 | acc 82.88% | lr 5.47e-04
+[13:25:38] INFO  |   epoch  32 | step  352/352 | loss 0.9555 | acc 82.94% | lr 5.47e-04 | 已用时 2m 00s
+[13:25:41] INFO  | [Epoch 32/60] 完成 | train_loss=0.9555 train_acc=82.94% | val_loss=0.7248 val_top1=90.70% val_top5=99.64% | 用时 2m 00s | amp_scale=2.097e+06
+[13:25:42] INFO  | [Epoch 33/60] lr=5.191e-04
+[13:26:00] INFO  |   epoch  33 | step   50/352 | loss 1.1325 | acc 76.16% | lr 5.19e-04
+[13:26:17] INFO  |   epoch  33 | step  100/352 | loss 1.0634 | acc 79.14% | lr 5.19e-04
+[13:26:36] INFO  |   epoch  33 | step  150/352 | loss 1.0147 | acc 80.88% | lr 5.19e-04
+[14:06:28] INFO  | ================================================================================================
+[14:06:28] INFO  | 实验名称：convnext_cifar10
+[14:06:28] INFO  | 输出根目录：D:\Document\workbuddy-ai\CISC3024PRAI\Assignment2\05_results
+[14:06:28] INFO  | 实验隔离标签：full_convnext_tiny_cifar10 -> 本次产物写入 D:\Document\workbuddy-ai\CISC3024PRAI\Assignment2\05_results\full_convnext_tiny_cifar10
+[14:06:28] INFO  | ================================================================================================
+[14:06:29] INFO  | [device] CUDA:0 | NVIDIA GeForce RTX 4060 Laptop GPU | 显存 8.0 GB
+[14:06:29] INFO  | [seed] 全局随机种子 = 42 | 确定性模式 = False
+[14:06:29] INFO  | [batch-size] 开始显存探测：期望 128，候选 128，范围 [8, 512]，AMP=True
+[14:06:42] INFO  | [batch-size] batch size = 256 探针峰值 5560 MB 超过可用显存 7000 MB 的 70%（WDDM 允许过度提交，需为训练留余量），停止放大，最终采用 128
+[14:06:42] INFO  | [batch-size] 最终确定 batch size = 128（探针峰值显存 2883 MB，当前可用显存 7000 MB，GPU 总显存 8.0 GB）
+[14:06:42] INFO  | [data] CIFAR-10 缓存状态：已就绪（跳过下载与重复校验）
+[14:06:42] INFO  | [data] 加载 CIFAR-10 训练集底座（transform=None，目录 D:\Document\workbuddy-ai\CISC3024PRAI\Assignment2\04_data\cifar10）
+[14:06:43] INFO  | [data] 加载 CIFAR-10 测试集底座（transform=None，目录 D:\Document\workbuddy-ai\CISC3024PRAI\Assignment2\04_data\cifar10）
+[14:06:44] INFO  | [data] 数据集 划分完成 | 训练 45000 张 | 验证 5000 张 | 测试 10000 张 | 类别数 10
+[14:06:44] INFO  | [data] DataLoader | train batch=128 | eval batch=256 | num_workers=0 | pin_memory=True
+[14:06:46] INFO  | [figures] 数据样例图已保存：../05_results\full_convnext_tiny_cifar10\figures\data_samples.png
+[14:06:46] INFO  | [model] 结构摘要：
+[14:06:46] INFO  |     ConvNeXt-tiny | stem=conv | drop_path=0.1
+[14:06:46] INFO  |       input            : 3 x 32 x 32
+[14:06:46] INFO  |       stage 1          : 32 x 32 x 96   | blocks=3
+[14:06:46] INFO  |       stage 2          : 16 x 16 x 192  | blocks=3
+[14:06:46] INFO  |       stage 3          :  8 x  8 x 384  | blocks=9
+[14:06:46] INFO  |       stage 4          :  4 x  4 x 768  | blocks=3
+[14:06:46] INFO  |       head             : global average pool -> Linear(768 -> 10)
+[14:06:46] INFO  | [model] 总参数量 = 27.83 M（27,825,802）| 可训练参数量 = 27.83 M
+[14:06:46] INFO  | [resume] --resume auto：检测到未完成的训练，自动从 ../05_results\full_convnext_tiny_cifar10\models\last.pt 续训
+[14:06:47] INFO  | [resume] 已从 ../05_results\full_convnext_tiny_cifar10\models\last.pt 恢复：下一轮 epoch=32，历史最优验证准确率=90.86%
+[14:06:47] INFO  | ================================================================================================
+[14:06:47] INFO  | 开始训练：epochs=60（本轮从 epoch 33 开始）| batch_size=128 x accum=1 (等效 batch=128)
+[14:06:47] INFO  | 优化器=AdamW(lr=0.001, wd=0.05) | 调度=warmup(5) + cosine -> 1e-05 | AMP=True（autocast bfloat16 + GradScaler） | Mixup/CutMix=True | 参数量=27.83M
+[14:06:47] INFO  | ================================================================================================
+[14:06:47] INFO  | [Epoch 33/60] lr=5.191e-04
+[14:07:20] INFO  |   epoch  33 | step   50/352 | loss 1.0201 | acc 80.29% | lr 5.19e-04
+[14:07:52] INFO  |   epoch  33 | step  100/352 | loss 0.9695 | acc 82.44% | lr 5.19e-04
+[14:08:23] INFO  |   epoch  33 | step  150/352 | loss 0.9523 | acc 83.10% | lr 5.19e-04
+[14:08:55] INFO  |   epoch  33 | step  200/352 | loss 0.9846 | acc 81.89% | lr 5.19e-04
+[14:09:28] INFO  |   epoch  33 | step  250/352 | loss 0.9850 | acc 81.89% | lr 5.19e-04
+[14:09:59] INFO  |   epoch  33 | step  300/352 | loss 0.9792 | acc 82.09% | lr 5.19e-04
+[14:10:31] INFO  |   epoch  33 | step  350/352 | loss 0.9619 | acc 82.81% | lr 5.19e-04
+[14:10:35] INFO  |   epoch  33 | step  352/352 | loss 0.9640 | acc 82.72% | lr 5.19e-04 | 已用时 3m 48s
+[14:10:43] INFO  | [Epoch 33/60] 完成 | train_loss=0.9640 train_acc=82.72% | val_loss=0.7016 val_top1=91.44% val_top5=99.70% | 用时 3m 48s | amp_scale=2.097e+06
+[14:10:46] INFO  |   -> 刷新最优验证准确率：91.44%（已保存 best.pt）
+[14:10:46] INFO  | [Epoch 34/60] lr=4.909e-04
+[14:11:19] INFO  |   epoch  34 | step   50/352 | loss 1.0624 | acc 78.32% | lr 4.91e-04
+[14:11:50] INFO  |   epoch  34 | step  100/352 | loss 1.0304 | acc 79.70% | lr 4.91e-04
+[14:12:23] INFO  |   epoch  34 | step  150/352 | loss 1.0136 | acc 80.59% | lr 4.91e-04
+[14:12:56] INFO  |   epoch  34 | step  200/352 | loss 0.9969 | acc 81.11% | lr 4.91e-04
+[14:13:33] INFO  |   epoch  34 | step  250/352 | loss 1.0207 | acc 80.12% | lr 4.91e-04
+[14:14:04] INFO  |   epoch  34 | step  300/352 | loss 1.0054 | acc 80.74% | lr 4.91e-04
+[14:14:38] INFO  |   epoch  34 | step  350/352 | loss 0.9979 | acc 81.13% | lr 4.91e-04
+[14:14:39] INFO  |   epoch  34 | step  352/352 | loss 0.9995 | acc 81.07% | lr 4.91e-04 | 已用时 3m 53s
+[14:14:48] INFO  | [Epoch 34/60] 完成 | train_loss=0.9995 train_acc=81.07% | val_loss=0.7107 val_top1=91.28% val_top5=99.64% | 用时 3m 53s | amp_scale=2.097e+06
+[14:14:50] INFO  | [Epoch 35/60] lr=4.626e-04
+[14:15:22] INFO  |   epoch  35 | step   50/352 | loss 0.9748 | acc 82.56% | lr 4.63e-04
+[14:15:56] INFO  |   epoch  35 | step  100/352 | loss 0.9589 | acc 83.20% | lr 4.63e-04
+[14:16:30] INFO  |   epoch  35 | step  150/352 | loss 0.9340 | acc 84.09% | lr 4.63e-04
+[14:17:05] INFO  |   epoch  35 | step  200/352 | loss 0.9180 | acc 84.71% | lr 4.63e-04
+[14:17:36] INFO  |   epoch  35 | step  250/352 | loss 0.9272 | acc 84.41% | lr 4.63e-04
+[14:18:08] INFO  |   epoch  35 | step  300/352 | loss 0.9215 | acc 84.59% | lr 4.63e-04
+[14:18:40] INFO  |   epoch  35 | step  350/352 | loss 0.9341 | acc 84.08% | lr 4.63e-04
+[14:18:42] INFO  |   epoch  35 | step  352/352 | loss 0.9338 | acc 84.10% | lr 4.63e-04 | 已用时 3m 52s
+[14:18:51] INFO  | [Epoch 35/60] 完成 | train_loss=0.9338 train_acc=84.10% | val_loss=0.7000 val_top1=92.00% val_top5=99.68% | 用时 3m 52s | amp_scale=4.194e+06
+[14:18:55] INFO  |   -> 刷新最优验证准确率：92.00%（已保存 best.pt）
+[14:18:55] INFO  | [Epoch 36/60] lr=4.346e-04
+[14:19:28] INFO  |   epoch  36 | step   50/352 | loss 0.8951 | acc 86.03% | lr 4.35e-04
+[14:20:03] INFO  |   epoch  36 | step  100/352 | loss 0.9183 | acc 84.86% | lr 4.35e-04
+[14:20:37] INFO  |   epoch  36 | step  150/352 | loss 0.9045 | acc 85.27% | lr 4.35e-04
+[14:21:10] INFO  |   epoch  36 | step  200/352 | loss 0.9227 | acc 84.36% | lr 4.35e-04
+[14:21:47] INFO  |   epoch  36 | step  250/352 | loss 0.9326 | acc 83.80% | lr 4.35e-04
+[14:22:27] INFO  |   epoch  36 | step  300/352 | loss 0.9418 | acc 83.32% | lr 4.35e-04
+[14:23:03] INFO  |   epoch  36 | step  350/352 | loss 0.9535 | acc 82.96% | lr 4.35e-04
+[14:23:04] INFO  |   epoch  36 | step  352/352 | loss 0.9540 | acc 82.95% | lr 4.35e-04 | 已用时 4m 09s
+[14:23:14] INFO  | [Epoch 36/60] 完成 | train_loss=0.9540 train_acc=82.95% | val_loss=0.7183 val_top1=91.58% val_top5=99.66% | 用时 4m 09s | amp_scale=4.194e+06
+[14:23:15] INFO  | [Epoch 37/60] lr=4.067e-04
+[14:23:50] INFO  |   epoch  37 | step   50/352 | loss 0.9440 | acc 84.10% | lr 4.07e-04
+[14:24:22] INFO  |   epoch  37 | step  100/352 | loss 0.9635 | acc 83.16% | lr 4.07e-04
+[14:24:55] INFO  |   epoch  37 | step  150/352 | loss 1.0066 | acc 81.12% | lr 4.07e-04
+[14:25:33] INFO  |   epoch  37 | step  200/352 | loss 1.0165 | acc 80.69% | lr 4.07e-04
+[14:26:09] INFO  |   epoch  37 | step  250/352 | loss 0.9982 | acc 81.41% | lr 4.07e-04
+[14:26:46] INFO  |   epoch  37 | step  300/352 | loss 0.9962 | acc 81.47% | lr 4.07e-04
+[14:27:23] INFO  |   epoch  37 | step  350/352 | loss 0.9863 | acc 81.86% | lr 4.07e-04
+[14:27:25] INFO  |   epoch  37 | step  352/352 | loss 0.9873 | acc 81.83% | lr 4.07e-04 | 已用时 4m 10s
+[14:27:34] INFO  | [Epoch 37/60] 完成 | train_loss=0.9873 train_acc=81.83% | val_loss=0.7101 val_top1=91.72% val_top5=99.70% | 用时 4m 10s | amp_scale=4.194e+06
+[14:27:36] INFO  | [Epoch 38/60] lr=3.792e-04
+[14:28:11] INFO  |   epoch  38 | step   50/352 | loss 0.8225 | acc 89.13% | lr 3.79e-04
+[14:28:46] INFO  |   epoch  38 | step  100/352 | loss 0.8963 | acc 85.75% | lr 3.79e-04
+[14:29:22] INFO  |   epoch  38 | step  150/352 | loss 0.8787 | acc 86.39% | lr 3.79e-04
+[14:29:55] INFO  |   epoch  38 | step  200/352 | loss 0.8962 | acc 85.68% | lr 3.79e-04
+[14:30:28] INFO  |   epoch  38 | step  250/352 | loss 0.9066 | acc 85.37% | lr 3.79e-04
+[14:31:03] INFO  |   epoch  38 | step  300/352 | loss 0.9099 | acc 85.19% | lr 3.79e-04
+[14:31:38] INFO  |   epoch  38 | step  350/352 | loss 0.9241 | acc 84.56% | lr 3.79e-04
+[14:31:39] INFO  |   epoch  38 | step  352/352 | loss 0.9246 | acc 84.54% | lr 3.79e-04 | 已用时 4m 03s
+[14:31:48] INFO  | [Epoch 38/60] 完成 | train_loss=0.9246 train_acc=84.54% | val_loss=0.7044 val_top1=91.76% val_top5=99.72% | 用时 4m 03s | amp_scale=4.194e+06
+[14:31:49] INFO  | [Epoch 39/60] lr=3.520e-04
+[14:32:24] INFO  |   epoch  39 | step   50/352 | loss 1.0852 | acc 77.76% | lr 3.52e-04
+[14:32:59] INFO  |   epoch  39 | step  100/352 | loss 0.9885 | acc 81.79% | lr 3.52e-04
+[14:33:34] INFO  |   epoch  39 | step  150/352 | loss 0.9636 | acc 82.72% | lr 3.52e-04
+[14:34:09] INFO  |   epoch  39 | step  200/352 | loss 0.9575 | acc 82.99% | lr 3.52e-04
+[14:34:44] INFO  |   epoch  39 | step  250/352 | loss 0.9614 | acc 82.78% | lr 3.52e-04
+[14:35:18] INFO  |   epoch  39 | step  300/352 | loss 0.9633 | acc 82.71% | lr 3.52e-04
+[14:35:52] INFO  |   epoch  39 | step  350/352 | loss 0.9713 | acc 82.42% | lr 3.52e-04
+[14:35:53] INFO  |   epoch  39 | step  352/352 | loss 0.9696 | acc 82.49% | lr 3.52e-04 | 已用时 4m 03s
+[14:36:02] INFO  | [Epoch 39/60] 完成 | train_loss=0.9696 train_acc=82.49% | val_loss=0.7085 val_top1=91.50% val_top5=99.50% | 用时 4m 03s | amp_scale=4.194e+06
+[14:36:04] INFO  | [Epoch 40/60] lr=3.254e-04
+[14:36:39] INFO  |   epoch  40 | step   50/352 | loss 0.9859 | acc 81.63% | lr 3.25e-04
+[14:37:12] INFO  |   epoch  40 | step  100/352 | loss 0.9481 | acc 83.44% | lr 3.25e-04
+[14:37:47] INFO  |   epoch  40 | step  150/352 | loss 0.9798 | acc 82.15% | lr 3.25e-04
+[14:38:20] INFO  |   epoch  40 | step  200/352 | loss 0.9532 | acc 82.98% | lr 3.25e-04
+[14:38:54] INFO  |   epoch  40 | step  250/352 | loss 0.9401 | acc 83.62% | lr 3.25e-04
+[14:39:27] INFO  |   epoch  40 | step  300/352 | loss 0.9500 | acc 83.27% | lr 3.25e-04
+[14:40:01] INFO  |   epoch  40 | step  350/352 | loss 0.9327 | acc 83.92% | lr 3.25e-04
+[14:40:02] INFO  |   epoch  40 | step  352/352 | loss 0.9318 | acc 83.97% | lr 3.25e-04 | 已用时 3m 58s
+[14:40:11] INFO  | [Epoch 40/60] 完成 | train_loss=0.9318 train_acc=83.97% | val_loss=0.6919 val_top1=92.12% val_top5=99.64% | 用时 3m 58s | amp_scale=8.389e+06
+[14:40:14] INFO  |   -> 刷新最优验证准确率：92.12%（已保存 best.pt）
+[14:40:16] INFO  | [Epoch 41/60] lr=2.994e-04
+[14:40:50] INFO  |   epoch  41 | step   50/352 | loss 0.9011 | acc 84.98% | lr 2.99e-04
+[14:41:23] INFO  |   epoch  41 | step  100/352 | loss 0.9504 | acc 83.28% | lr 2.99e-04
+[14:41:57] INFO  |   epoch  41 | step  150/352 | loss 0.9782 | acc 81.98% | lr 2.99e-04
+[14:42:32] INFO  |   epoch  41 | step  200/352 | loss 0.9654 | acc 82.43% | lr 2.99e-04
+[14:43:06] INFO  |   epoch  41 | step  250/352 | loss 0.9352 | acc 83.72% | lr 2.99e-04
+[14:43:41] INFO  |   epoch  41 | step  300/352 | loss 0.9173 | acc 84.47% | lr 2.99e-04
+[14:44:15] INFO  |   epoch  41 | step  350/352 | loss 0.9086 | acc 84.87% | lr 2.99e-04
+[14:44:16] INFO  |   epoch  41 | step  352/352 | loss 0.9070 | acc 84.93% | lr 2.99e-04 | 已用时 4m 00s
+[14:44:25] INFO  | [Epoch 41/60] 完成 | train_loss=0.9070 train_acc=84.93% | val_loss=0.6893 val_top1=92.28% val_top5=99.74% | 用时 4m 00s | amp_scale=8.389e+06
+[14:44:28] INFO  |   -> 刷新最优验证准确率：92.28%（已保存 best.pt）
+[14:44:28] INFO  | [Epoch 42/60] lr=2.740e-04
+[14:45:02] INFO  |   epoch  42 | step   50/352 | loss 0.9343 | acc 83.84% | lr 2.74e-04
+[14:45:38] INFO  |   epoch  42 | step  100/352 | loss 0.8951 | acc 85.92% | lr 2.74e-04
+[14:46:13] INFO  |   epoch  42 | step  150/352 | loss 0.8928 | acc 85.78% | lr 2.74e-04
+[14:46:48] INFO  |   epoch  42 | step  200/352 | loss 0.9145 | acc 85.12% | lr 2.74e-04
+[14:47:23] INFO  |   epoch  42 | step  250/352 | loss 0.9077 | acc 85.27% | lr 2.74e-04
+[14:47:56] INFO  |   epoch  42 | step  300/352 | loss 0.9004 | acc 85.57% | lr 2.74e-04
+[14:48:30] INFO  |   epoch  42 | step  350/352 | loss 0.9081 | acc 85.22% | lr 2.74e-04
+[14:48:31] INFO  |   epoch  42 | step  352/352 | loss 0.9086 | acc 85.23% | lr 2.74e-04 | 已用时 4m 03s
+[14:48:39] INFO  | [Epoch 42/60] 完成 | train_loss=0.9086 train_acc=85.23% | val_loss=0.6951 val_top1=92.14% val_top5=99.70% | 用时 4m 03s | amp_scale=8.389e+06
+[14:48:41] INFO  | [Epoch 43/60] lr=2.494e-04
+[14:49:15] INFO  |   epoch  43 | step   50/352 | loss 0.8858 | acc 85.36% | lr 2.49e-04
+[14:49:49] INFO  |   epoch  43 | step  100/352 | loss 0.8379 | acc 87.87% | lr 2.49e-04
+[14:50:23] INFO  |   epoch  43 | step  150/352 | loss 0.8457 | acc 87.62% | lr 2.49e-04
+[14:50:57] INFO  |   epoch  43 | step  200/352 | loss 0.8806 | acc 86.16% | lr 2.49e-04
+[14:51:32] INFO  |   epoch  43 | step  250/352 | loss 0.8829 | acc 86.13% | lr 2.49e-04
+[14:52:06] INFO  |   epoch  43 | step  300/352 | loss 0.8877 | acc 85.84% | lr 2.49e-04
+[14:52:41] INFO  |   epoch  43 | step  350/352 | loss 0.8995 | acc 85.32% | lr 2.49e-04
+[14:52:42] INFO  |   epoch  43 | step  352/352 | loss 0.8988 | acc 85.36% | lr 2.49e-04 | 已用时 4m 01s
+[14:52:51] INFO  | [Epoch 43/60] 完成 | train_loss=0.8988 train_acc=85.36% | val_loss=0.7046 val_top1=91.60% val_top5=99.60% | 用时 4m 01s | amp_scale=8.389e+06
+[14:52:52] INFO  | [Epoch 44/60] lr=2.256e-04
+[14:53:26] INFO  |   epoch  44 | step   50/352 | loss 0.9462 | acc 83.54% | lr 2.26e-04
+[14:54:01] INFO  |   epoch  44 | step  100/352 | loss 0.9193 | acc 84.59% | lr 2.26e-04
+[14:54:34] INFO  |   epoch  44 | step  150/352 | loss 0.8951 | acc 85.69% | lr 2.26e-04
+[14:55:10] INFO  |   epoch  44 | step  200/352 | loss 0.9137 | acc 84.88% | lr 2.26e-04
+[14:55:45] INFO  |   epoch  44 | step  250/352 | loss 0.9219 | acc 84.41% | lr 2.26e-04
+[14:56:19] INFO  |   epoch  44 | step  300/352 | loss 0.9203 | acc 84.45% | lr 2.26e-04
+[14:56:54] INFO  |   epoch  44 | step  350/352 | loss 0.9238 | acc 84.26% | lr 2.26e-04
+[14:56:55] INFO  |   epoch  44 | step  352/352 | loss 0.9260 | acc 84.17% | lr 2.26e-04 | 已用时 4m 02s
+[14:57:04] INFO  | [Epoch 44/60] 完成 | train_loss=0.9260 train_acc=84.17% | val_loss=0.6866 val_top1=92.62% val_top5=99.68% | 用时 4m 02s | amp_scale=8.389e+06
+[14:57:06] INFO  |   -> 刷新最优验证准确率：92.62%（已保存 best.pt）
+[14:57:06] INFO  | [Epoch 45/60] lr=2.027e-04
+[14:57:41] INFO  |   epoch  45 | step   50/352 | loss 0.8879 | acc 85.67% | lr 2.03e-04
+[14:58:15] INFO  |   epoch  45 | step  100/352 | loss 0.9199 | acc 84.61% | lr 2.03e-04
+[14:58:48] INFO  |   epoch  45 | step  150/352 | loss 0.9297 | acc 83.97% | lr 2.03e-04
+[14:59:23] INFO  |   epoch  45 | step  200/352 | loss 0.9167 | acc 84.54% | lr 2.03e-04
+[14:59:59] INFO  |   epoch  45 | step  250/352 | loss 0.9156 | acc 84.65% | lr 2.03e-04
+[15:00:34] INFO  |   epoch  45 | step  300/352 | loss 0.9122 | acc 84.76% | lr 2.03e-04
+[15:01:09] INFO  |   epoch  45 | step  350/352 | loss 0.9173 | acc 84.47% | lr 2.03e-04
+[15:01:11] INFO  |   epoch  45 | step  352/352 | loss 0.9157 | acc 84.53% | lr 2.03e-04 | 已用时 4m 04s
+[15:01:19] INFO  | [Epoch 45/60] 完成 | train_loss=0.9157 train_acc=84.53% | val_loss=0.6793 val_top1=93.06% val_top5=99.74% | 用时 4m 04s | amp_scale=8.389e+06
+[15:01:21] INFO  |   -> 刷新最优验证准确率：93.06%（已保存 best.pt）
+[15:01:21] INFO  | [Epoch 46/60] lr=1.808e-04
+[15:01:55] INFO  |   epoch  46 | step   50/352 | loss 0.8912 | acc 85.52% | lr 1.81e-04
+[15:02:29] INFO  |   epoch  46 | step  100/352 | loss 0.9331 | acc 83.74% | lr 1.81e-04
+[15:03:02] INFO  |   epoch  46 | step  150/352 | loss 0.9385 | acc 83.33% | lr 1.81e-04
+[15:03:37] INFO  |   epoch  46 | step  200/352 | loss 0.9200 | acc 84.06% | lr 1.81e-04
+[15:04:10] INFO  |   epoch  46 | step  250/352 | loss 0.9338 | acc 83.35% | lr 1.81e-04
+[15:04:43] INFO  |   epoch  46 | step  300/352 | loss 0.9144 | acc 84.19% | lr 1.81e-04
+[15:05:17] INFO  |   epoch  46 | step  350/352 | loss 0.9119 | acc 84.31% | lr 1.81e-04
+[15:05:19] INFO  |   epoch  46 | step  352/352 | loss 0.9119 | acc 84.30% | lr 1.81e-04 | 已用时 3m 57s
+[15:05:27] INFO  | [Epoch 46/60] 完成 | train_loss=0.9119 train_acc=84.30% | val_loss=0.6833 val_top1=92.88% val_top5=99.68% | 用时 3m 57s | amp_scale=1.678e+07
+[15:05:28] INFO  | [Epoch 47/60] lr=1.600e-04
+[15:06:04] INFO  |   epoch  47 | step   50/352 | loss 1.0618 | acc 77.72% | lr 1.60e-04
+[15:06:37] INFO  |   epoch  47 | step  100/352 | loss 0.9744 | acc 81.88% | lr 1.60e-04
+[15:07:11] INFO  |   epoch  47 | step  150/352 | loss 0.9549 | acc 82.80% | lr 1.60e-04
+[15:07:47] INFO  |   epoch  47 | step  200/352 | loss 0.9510 | acc 83.03% | lr 1.60e-04
+[15:08:21] INFO  |   epoch  47 | step  250/352 | loss 0.9516 | acc 83.02% | lr 1.60e-04
+[15:08:55] INFO  |   epoch  47 | step  300/352 | loss 0.9399 | acc 83.52% | lr 1.60e-04
+[15:09:31] INFO  |   epoch  47 | step  350/352 | loss 0.9344 | acc 83.75% | lr 1.60e-04
+[15:09:33] INFO  |   epoch  47 | step  352/352 | loss 0.9327 | acc 83.82% | lr 1.60e-04 | 已用时 4m 04s
+[15:09:42] INFO  | [Epoch 47/60] 完成 | train_loss=0.9327 train_acc=83.82% | val_loss=0.6787 val_top1=93.12% val_top5=99.76% | 用时 4m 04s | amp_scale=1.678e+07
+[15:09:44] INFO  |   -> 刷新最优验证准确率：93.12%（已保存 best.pt）
+[15:09:44] INFO  | [Epoch 48/60] lr=1.403e-04
+[15:10:17] INFO  |   epoch  48 | step   50/352 | loss 0.7932 | acc 89.65% | lr 1.40e-04
+[15:10:52] INFO  |   epoch  48 | step  100/352 | loss 0.7958 | acc 89.34% | lr 1.40e-04
+[15:11:26] INFO  |   epoch  48 | step  150/352 | loss 0.8497 | acc 87.11% | lr 1.40e-04
+[15:12:01] INFO  |   epoch  48 | step  200/352 | loss 0.8655 | acc 86.41% | lr 1.40e-04
+[15:12:35] INFO  |   epoch  48 | step  250/352 | loss 0.8550 | acc 86.77% | lr 1.40e-04
+[15:13:09] INFO  |   epoch  48 | step  300/352 | loss 0.8646 | acc 86.51% | lr 1.40e-04
+[15:13:42] INFO  |   epoch  48 | step  350/352 | loss 0.8648 | acc 86.47% | lr 1.40e-04
+[15:13:43] INFO  |   epoch  48 | step  352/352 | loss 0.8668 | acc 86.38% | lr 1.40e-04 | 已用时 3m 59s
+[15:13:52] INFO  | [Epoch 48/60] 完成 | train_loss=0.8668 train_acc=86.38% | val_loss=0.6836 val_top1=92.90% val_top5=99.66% | 用时 3m 59s | amp_scale=1.678e+07
+[15:13:54] INFO  | [Epoch 49/60] lr=1.218e-04
+[15:14:28] INFO  |   epoch  49 | step   50/352 | loss 0.8972 | acc 85.55% | lr 1.22e-04
+[15:15:03] INFO  |   epoch  49 | step  100/352 | loss 0.9561 | acc 82.89% | lr 1.22e-04
+[15:15:37] INFO  |   epoch  49 | step  150/352 | loss 0.9715 | acc 82.55% | lr 1.22e-04
+[15:16:12] INFO  |   epoch  49 | step  200/352 | loss 0.9373 | acc 83.83% | lr 1.22e-04
+[15:16:46] INFO  |   epoch  49 | step  250/352 | loss 0.9464 | acc 83.39% | lr 1.22e-04
+[15:17:22] INFO  |   epoch  49 | step  300/352 | loss 0.9291 | acc 84.04% | lr 1.22e-04
+[15:17:56] INFO  |   epoch  49 | step  350/352 | loss 0.9136 | acc 84.58% | lr 1.22e-04
+[15:17:57] INFO  |   epoch  49 | step  352/352 | loss 0.9131 | acc 84.61% | lr 1.22e-04 | 已用时 4m 03s
+[15:18:05] INFO  | [Epoch 49/60] 完成 | train_loss=0.9131 train_acc=84.61% | val_loss=0.6772 val_top1=92.82% val_top5=99.72% | 用时 4m 03s | amp_scale=1.678e+07
+[15:18:07] INFO  | [Epoch 50/60] lr=1.045e-04
+[15:18:40] INFO  |   epoch  50 | step   50/352 | loss 0.8412 | acc 87.28% | lr 1.05e-04
+[15:19:14] INFO  |   epoch  50 | step  100/352 | loss 0.8261 | acc 88.20% | lr 1.05e-04
+[15:19:49] INFO  |   epoch  50 | step  150/352 | loss 0.8633 | acc 86.49% | lr 1.05e-04
+[15:20:22] INFO  |   epoch  50 | step  200/352 | loss 0.8492 | acc 87.08% | lr 1.05e-04
+[15:20:55] INFO  |   epoch  50 | step  250/352 | loss 0.8656 | acc 86.42% | lr 1.05e-04
+[15:21:30] INFO  |   epoch  50 | step  300/352 | loss 0.8688 | acc 86.34% | lr 1.05e-04
+[15:22:05] INFO  |   epoch  50 | step  350/352 | loss 0.8633 | acc 86.52% | lr 1.05e-04
+[15:22:06] INFO  |   epoch  50 | step  352/352 | loss 0.8625 | acc 86.56% | lr 1.05e-04 | 已用时 3m 59s
+[15:22:14] INFO  | [Epoch 50/60] 完成 | train_loss=0.8625 train_acc=86.56% | val_loss=0.6779 val_top1=93.04% val_top5=99.82% | 用时 3m 59s | amp_scale=1.678e+07
+[15:22:18] INFO  | [Epoch 51/60] lr=8.858e-05
+[15:22:51] INFO  |   epoch  51 | step   50/352 | loss 0.8476 | acc 87.89% | lr 8.86e-05
+[15:23:25] INFO  |   epoch  51 | step  100/352 | loss 0.8901 | acc 86.06% | lr 8.86e-05
+[15:23:59] INFO  |   epoch  51 | step  150/352 | loss 0.9130 | acc 84.56% | lr 8.86e-05
+[15:24:32] INFO  |   epoch  51 | step  200/352 | loss 0.9038 | acc 84.96% | lr 8.86e-05
+[15:25:07] INFO  |   epoch  51 | step  250/352 | loss 0.8803 | acc 85.90% | lr 8.86e-05
+[15:25:41] INFO  |   epoch  51 | step  300/352 | loss 0.8843 | acc 85.79% | lr 8.86e-05
+[15:26:16] INFO  |   epoch  51 | step  350/352 | loss 0.8988 | acc 85.19% | lr 8.86e-05
+[15:26:17] INFO  |   epoch  51 | step  352/352 | loss 0.8972 | acc 85.26% | lr 8.86e-05 | 已用时 4m 00s
+[15:26:26] INFO  | [Epoch 51/60] 完成 | train_loss=0.8972 train_acc=85.26% | val_loss=0.6800 val_top1=92.86% val_top5=99.70% | 用时 4m 00s | amp_scale=1.678e+07
+[15:26:28] INFO  | [Epoch 52/60] lr=7.398e-05
+[15:27:01] INFO  |   epoch  52 | step   50/352 | loss 0.8262 | acc 87.71% | lr 7.40e-05
+[15:27:33] INFO  |   epoch  52 | step  100/352 | loss 0.8236 | acc 87.87% | lr 7.40e-05
+[15:28:08] INFO  |   epoch  52 | step  150/352 | loss 0.8716 | acc 86.18% | lr 7.40e-05
+[15:28:42] INFO  |   epoch  52 | step  200/352 | loss 0.8656 | acc 86.42% | lr 7.40e-05
+[15:29:15] INFO  |   epoch  52 | step  250/352 | loss 0.8719 | acc 86.21% | lr 7.40e-05
+[15:29:49] INFO  |   epoch  52 | step  300/352 | loss 0.8775 | acc 86.11% | lr 7.40e-05
+[15:30:22] INFO  |   epoch  52 | step  350/352 | loss 0.8824 | acc 86.06% | lr 7.40e-05
+[15:30:23] INFO  |   epoch  52 | step  352/352 | loss 0.8810 | acc 86.11% | lr 7.40e-05 | 已用时 3m 55s
+[15:30:31] INFO  | [Epoch 52/60] 完成 | train_loss=0.8810 train_acc=86.11% | val_loss=0.6768 val_top1=93.28% val_top5=99.76% | 用时 3m 55s | amp_scale=3.355e+07
+[15:30:34] INFO  |   -> 刷新最优验证准确率：93.28%（已保存 best.pt）
+[15:30:34] INFO  | [Epoch 53/60] lr=6.079e-05
+[15:31:07] INFO  |   epoch  53 | step   50/352 | loss 0.9661 | acc 81.94% | lr 6.08e-05
+[15:31:39] INFO  |   epoch  53 | step  100/352 | loss 0.9519 | acc 82.85% | lr 6.08e-05
+[15:32:14] INFO  |   epoch  53 | step  150/352 | loss 0.8815 | acc 85.82% | lr 6.08e-05
+[15:32:47] INFO  |   epoch  53 | step  200/352 | loss 0.9001 | acc 85.03% | lr 6.08e-05
+[15:33:19] INFO  |   epoch  53 | step  250/352 | loss 0.8884 | acc 85.54% | lr 6.08e-05
+[15:33:52] INFO  |   epoch  53 | step  300/352 | loss 0.9058 | acc 84.80% | lr 6.08e-05
+[15:34:28] INFO  |   epoch  53 | step  350/352 | loss 0.9122 | acc 84.54% | lr 6.08e-05
+[15:34:29] INFO  |   epoch  53 | step  352/352 | loss 0.9122 | acc 84.56% | lr 6.08e-05 | 已用时 3m 55s
+[15:34:37] INFO  | [Epoch 53/60] 完成 | train_loss=0.9122 train_acc=84.56% | val_loss=0.6754 val_top1=93.18% val_top5=99.78% | 用时 3m 55s | amp_scale=3.355e+07
+[15:34:39] INFO  | [Epoch 54/60] lr=4.904e-05
+[15:35:12] INFO  |   epoch  54 | step   50/352 | loss 0.9657 | acc 82.04% | lr 4.90e-05
+[15:35:47] INFO  |   epoch  54 | step  100/352 | loss 0.9897 | acc 81.13% | lr 4.90e-05
+[15:36:21] INFO  |   epoch  54 | step  150/352 | loss 0.9499 | acc 82.59% | lr 4.90e-05
+[15:36:53] INFO  |   epoch  54 | step  200/352 | loss 0.9458 | acc 82.76% | lr 4.90e-05
+[15:37:28] INFO  |   epoch  54 | step  250/352 | loss 0.9267 | acc 83.79% | lr 4.90e-05
+[15:38:02] INFO  |   epoch  54 | step  300/352 | loss 0.9181 | acc 84.13% | lr 4.90e-05
+[15:38:35] INFO  |   epoch  54 | step  350/352 | loss 0.9070 | acc 84.52% | lr 4.90e-05
+[15:38:36] INFO  |   epoch  54 | step  352/352 | loss 0.9053 | acc 84.58% | lr 4.90e-05 | 已用时 3m 57s
+[15:38:45] INFO  | [Epoch 54/60] 完成 | train_loss=0.9053 train_acc=84.58% | val_loss=0.6720 val_top1=93.26% val_top5=99.76% | 用时 3m 57s | amp_scale=3.355e+07
+[15:38:46] INFO  | [Epoch 55/60] lr=3.879e-05
+[15:39:19] INFO  |   epoch  55 | step   50/352 | loss 0.9856 | acc 81.66% | lr 3.88e-05
+[15:39:51] INFO  |   epoch  55 | step  100/352 | loss 0.9267 | acc 84.19% | lr 3.88e-05
+[15:40:23] INFO  |   epoch  55 | step  150/352 | loss 0.9336 | acc 83.65% | lr 3.88e-05
+[15:40:56] INFO  |   epoch  55 | step  200/352 | loss 0.9205 | acc 84.26% | lr 3.88e-05
+[15:41:29] INFO  |   epoch  55 | step  250/352 | loss 0.9235 | acc 84.16% | lr 3.88e-05
+[15:42:02] INFO  |   epoch  55 | step  300/352 | loss 0.9278 | acc 83.98% | lr 3.88e-05
+[15:42:35] INFO  |   epoch  55 | step  350/352 | loss 0.9449 | acc 83.20% | lr 3.88e-05
+[15:42:36] INFO  |   epoch  55 | step  352/352 | loss 0.9448 | acc 83.20% | lr 3.88e-05 | 已用时 3m 50s
+[15:42:45] INFO  | [Epoch 55/60] 完成 | train_loss=0.9448 train_acc=83.20% | val_loss=0.6761 val_top1=93.22% val_top5=99.76% | 用时 3m 50s | amp_scale=3.355e+07
+[15:42:47] INFO  | [Epoch 56/60] lr=3.005e-05
+[15:43:25] INFO  |   epoch  56 | step   50/352 | loss 0.9445 | acc 82.73% | lr 3.01e-05
+[15:43:57] INFO  |   epoch  56 | step  100/352 | loss 0.9304 | acc 83.84% | lr 3.01e-05
+[15:44:30] INFO  |   epoch  56 | step  150/352 | loss 0.9202 | acc 84.08% | lr 3.01e-05
+[15:45:02] INFO  |   epoch  56 | step  200/352 | loss 0.8949 | acc 85.24% | lr 3.01e-05
+[15:45:35] INFO  |   epoch  56 | step  250/352 | loss 0.8938 | acc 85.41% | lr 3.01e-05
+[15:46:10] INFO  |   epoch  56 | step  300/352 | loss 0.9042 | acc 85.00% | lr 3.01e-05
+[15:46:42] INFO  |   epoch  56 | step  350/352 | loss 0.9079 | acc 84.79% | lr 3.01e-05
+[15:46:43] INFO  |   epoch  56 | step  352/352 | loss 0.9104 | acc 84.68% | lr 3.01e-05 | 已用时 3m 56s
+[15:46:52] INFO  | [Epoch 56/60] 完成 | train_loss=0.9104 train_acc=84.68% | val_loss=0.6750 val_top1=93.26% val_top5=99.80% | 用时 3m 56s | amp_scale=3.355e+07
+[15:46:53] INFO  | [Epoch 57/60] lr=2.286e-05
+[15:47:25] INFO  |   epoch  57 | step   50/352 | loss 0.9394 | acc 83.62% | lr 2.29e-05
+[15:47:58] INFO  |   epoch  57 | step  100/352 | loss 0.9583 | acc 83.09% | lr 2.29e-05
+[15:48:32] INFO  |   epoch  57 | step  150/352 | loss 0.9731 | acc 82.28% | lr 2.29e-05
+[15:49:04] INFO  |   epoch  57 | step  200/352 | loss 0.9525 | acc 83.20% | lr 2.29e-05
+[15:49:33] INFO  |   epoch  57 | step  250/352 | loss 0.9486 | acc 83.41% | lr 2.29e-05
+[15:50:02] INFO  |   epoch  57 | step  300/352 | loss 0.9396 | acc 83.67% | lr 2.29e-05
+[15:50:31] INFO  |   epoch  57 | step  350/352 | loss 0.9280 | acc 84.14% | lr 2.29e-05
+[15:50:31] INFO  |   epoch  57 | step  352/352 | loss 0.9297 | acc 84.09% | lr 2.29e-05 | 已用时 3m 38s
+[15:50:39] INFO  | [Epoch 57/60] 完成 | train_loss=0.9297 train_acc=84.09% | val_loss=0.6714 val_top1=93.42% val_top5=99.78% | 用时 3m 38s | amp_scale=6.711e+07
+[15:50:42] INFO  |   -> 刷新最优验证准确率：93.42%（已保存 best.pt）
+[15:50:42] INFO  | [Epoch 58/60] lr=1.725e-05
+[15:51:10] INFO  |   epoch  58 | step   50/352 | loss 0.9799 | acc 82.07% | lr 1.72e-05
+[15:51:37] INFO  |   epoch  58 | step  100/352 | loss 0.8998 | acc 85.59% | lr 1.72e-05
+[15:52:08] INFO  |   epoch  58 | step  150/352 | loss 0.8813 | acc 86.24% | lr 1.72e-05
+[15:52:37] INFO  |   epoch  58 | step  200/352 | loss 0.8792 | acc 86.31% | lr 1.72e-05
+[15:53:07] INFO  |   epoch  58 | step  250/352 | loss 0.8942 | acc 85.65% | lr 1.72e-05
+[15:53:38] INFO  |   epoch  58 | step  300/352 | loss 0.9101 | acc 84.93% | lr 1.72e-05
+[15:54:06] INFO  |   epoch  58 | step  350/352 | loss 0.8987 | acc 85.35% | lr 1.72e-05
+[15:54:08] INFO  |   epoch  58 | step  352/352 | loss 0.8986 | acc 85.34% | lr 1.72e-05 | 已用时 3m 26s
+[15:54:14] INFO  | [Epoch 58/60] 完成 | train_loss=0.8986 train_acc=85.34% | val_loss=0.6711 val_top1=93.48% val_top5=99.74% | 用时 3m 26s | amp_scale=6.711e+07
+[15:54:17] INFO  |   -> 刷新最优验证准确率：93.48%（已保存 best.pt）
+[15:54:17] INFO  | [Epoch 59/60] lr=1.323e-05
+[15:54:43] INFO  |   epoch  59 | step   50/352 | loss 0.8129 | acc 88.47% | lr 1.32e-05
+[15:55:08] INFO  |   epoch  59 | step  100/352 | loss 0.8255 | acc 88.05% | lr 1.32e-05
+[15:55:33] INFO  |   epoch  59 | step  150/352 | loss 0.8692 | acc 86.36% | lr 1.32e-05
+[15:56:00] INFO  |   epoch  59 | step  200/352 | loss 0.8714 | acc 86.45% | lr 1.32e-05
+[15:56:26] INFO  |   epoch  59 | step  250/352 | loss 0.8605 | acc 86.87% | lr 1.32e-05
+[15:56:50] INFO  |   epoch  59 | step  300/352 | loss 0.8600 | acc 86.91% | lr 1.32e-05
+[15:57:17] INFO  |   epoch  59 | step  350/352 | loss 0.8703 | acc 86.42% | lr 1.32e-05
+[15:57:18] INFO  |   epoch  59 | step  352/352 | loss 0.8727 | acc 86.31% | lr 1.32e-05 | 已用时 3m 01s
+[15:57:24] INFO  | [Epoch 59/60] 完成 | train_loss=0.8727 train_acc=86.31% | val_loss=0.6697 val_top1=93.50% val_top5=99.76% | 用时 3m 01s | amp_scale=6.711e+07
+[15:57:27] INFO  |   -> 刷新最优验证准确率：93.50%（已保存 best.pt）
+[15:57:27] INFO  | [Epoch 60/60] lr=1.081e-05
+[15:57:59] INFO  |   epoch  60 | step   50/352 | loss 0.8776 | acc 85.32% | lr 1.08e-05
+[15:58:28] INFO  |   epoch  60 | step  100/352 | loss 0.9004 | acc 84.77% | lr 1.08e-05
+[15:58:56] INFO  |   epoch  60 | step  150/352 | loss 0.8685 | acc 86.12% | lr 1.08e-05
+[15:59:26] INFO  |   epoch  60 | step  200/352 | loss 0.8937 | acc 85.25% | lr 1.08e-05
+[15:59:55] INFO  |   epoch  60 | step  250/352 | loss 0.9266 | acc 84.03% | lr 1.08e-05
+[16:00:25] INFO  |   epoch  60 | step  300/352 | loss 0.9207 | acc 84.20% | lr 1.08e-05
+[16:00:56] INFO  |   epoch  60 | step  350/352 | loss 0.9140 | acc 84.46% | lr 1.08e-05
+[16:00:57] INFO  |   epoch  60 | step  352/352 | loss 0.9127 | acc 84.52% | lr 1.08e-05 | 已用时 3m 30s
+[16:01:03] INFO  | [Epoch 60/60] 完成 | train_loss=0.9127 train_acc=84.52% | val_loss=0.6709 val_top1=93.42% val_top5=99.76% | 用时 3m 30s | amp_scale=6.711e+07
+[16:01:07] INFO  | 训练结束 | 历史最优验证准确率 = 93.50%（epoch 59）| 曲线已保存至 ../05_results\full_convnext_tiny_cifar10\figures\training_curves.png
+[16:01:07] INFO  | [amp] GradScaler 最小 scale = 2.097e+06
+[16:01:07] INFO  | [logs] 逐轮指标已保存：D:\Document\workbuddy-ai\CISC3024PRAI\Assignment2\05_results\full_convnext_tiny_cifar10\logs\history.json 与 D:\Document\workbuddy-ai\CISC3024PRAI\Assignment2\05_results\full_convnext_tiny_cifar10\logs\history.csv
+[16:01:07] INFO  | ================================================================================================
+[16:01:07] INFO  | 开始在**测试集**上评估验证集最优模型（best.pt）……
+[16:01:08] INFO  | [evaluate] 已载入 ../05_results\full_convnext_tiny_cifar10\models\best.pt（对应 epoch 59）
+[16:01:21] INFO  | [test] loss=0.6842 | Top-1 = 92.66% | Top-5 = 99.56% | 样本数 = 10000 | TTA = False
+[16:01:34] INFO  | 逐类准确率（测试集）：
+[16:01:34] INFO  |     airplane   :  93.50%  (支撑样本 1000 张)
+[16:01:34] INFO  |     automobile :  98.20%  (支撑样本 1000 张)
+[16:01:34] INFO  |     bird       :  90.20%  (支撑样本 1000 张)
+[16:01:34] INFO  |     cat        :  82.10%  (支撑样本 1000 张)
+[16:01:34] INFO  |     deer       :  92.90%  (支撑样本 1000 张)
+[16:01:34] INFO  |     dog        :  87.90%  (支撑样本 1000 张)
+[16:01:34] INFO  |     frog       :  95.90%  (支撑样本 1000 张)
+[16:01:34] INFO  |     horse      :  94.60%  (支撑样本 1000 张)
+[16:01:34] INFO  |     ship       :  96.30%  (支撑样本 1000 张)
+[16:01:34] INFO  |     truck      :  95.10%  (支撑样本 1000 张)
+[16:01:34] INFO  | 宏平均（各类准确率均值）：92.67%
+[16:01:36] INFO  | [metrics] 指标汇总表已保存：D:\Document\workbuddy-ai\CISC3024PRAI\Assignment2\05_results\full_convnext_tiny_cifar10\metrics\metrics.csv
+[16:01:36] INFO  | ================================================================================================
+[16:01:36] INFO  | 全部完成！总耗时 1h 55m 08s
+[16:01:36] INFO  | 最终测试集 Top-1 准确率：92.66%
+[16:01:36] INFO  | 本次实验产物目录：D:\Document\workbuddy-ai\CISC3024PRAI\Assignment2\05_results\full_convnext_tiny_cifar10
+[16:01:36] INFO  | 结果文件：D:\Document\workbuddy-ai\CISC3024PRAI\Assignment2\05_results\full_convnext_tiny_cifar10\metrics
+[16:01:36] INFO  | 图表文件：D:\Document\workbuddy-ai\CISC3024PRAI\Assignment2\05_results\full_convnext_tiny_cifar10\figures
+[16:01:36] INFO  | ================================================================================================

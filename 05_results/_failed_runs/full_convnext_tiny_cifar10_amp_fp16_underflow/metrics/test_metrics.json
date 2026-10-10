@@ -1,0 +1,61 @@
+{
+  "experiment": "convnext_cifar10",
+  "algorithm": "ConvNeXt (A ConvNet for the 2020s, CVPR 2022; arXiv:2201.03545)",
+  "architecture": {
+    "preset": "tiny",
+    "stem_mode": "conv",
+    "drop_path_rate": 0.1,
+    "depths": null,
+    "dims": null,
+    "num_params": 27825802
+  },
+  "dataset": {
+    "name": "CIFAR10",
+    "is_synthetic": false,
+    "split": "train 45000 / val 5000 / test 10000",
+    "is_full_scale": true,
+    "train_subset_size": null,
+    "test_subset_size": null,
+    "val_ratio": 0.1,
+    "data_root": "/content/convnext_cifar10/data"
+  },
+  "device": "CUDA:0 | Tesla T4 | 显存 14.6 GB",
+  "gpu_total_memory_gb": 14.56,
+  "batch_size_requested": 128,
+  "batch_size_actual": 512,
+  "grad_accum_steps": 1,
+  "effective_batch_size": 512,
+  "epochs": 60,
+  "epochs_completed": 60,
+  "max_steps_per_epoch": null,
+  "best_val_acc": 26.66,
+  "best_val_epoch": 2,
+  "test_metrics": {
+    "loss": 2.093634,
+    "top1_acc": 25.73,
+    "top5_acc": 78.35,
+    "num_samples": 10000
+  },
+  "evaluation": {
+    "tta": false,
+    "tta_views": [
+      "identity"
+    ],
+    "note": "loss 由不做 TTA 的原始前向计算；Top-1/Top-5 使用 TTA 平均 softmax 概率"
+  },
+  "per_class_accuracy": {
+    "airplane": 29.2,
+    "automobile": 26.8,
+    "bird": 7.2,
+    "cat": 5.0,
+    "deer": 17.3,
+    "dog": 17.0,
+    "frog": 59.9,
+    "horse": 16.5,
+    "ship": 61.1,
+    "truck": 17.3
+  },
+  "macro_accuracy": 25.73,
+  "total_training_time": "1h 54m 00s",
+  "seed": 42
+}

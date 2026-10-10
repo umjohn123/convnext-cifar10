@@ -1,0 +1,69 @@
+[13:23:36] INFO  | ====================================================================================================
+[13:23:36] INFO  | [evaluate] 检查点：/content/convnext_cifar10/outputs/full_convnext_tiny_cifar10/models/best.pt
+[13:23:36] INFO  | [evaluate] 已从检查点恢复训练时的模型配置：preset=tiny | stem_mode=conv | drop_path=0.1
+[13:23:36] INFO  | [device] CUDA:0 | Tesla T4 | 显存 14.6 GB
+[13:23:36] INFO  | [data] CIFAR-10 缓存状态：已就绪（跳过下载与重复校验）
+[13:23:36] INFO  | [data] 加载 CIFAR-10 训练集底座（transform=None，目录 /content/convnext_cifar10/data）
+[13:23:36] INFO  | [data] 加载 CIFAR-10 测试集底座（transform=None，目录 /content/convnext_cifar10/data）
+[13:23:37] INFO  | [data] 数据集 划分完成 | 训练 45000 张 | 验证 5000 张 | 测试 10000 张 | 类别数 10
+[13:23:37] INFO  | [data] DataLoader | train batch=128 | eval batch=256 | num_workers=2 | pin_memory=True
+[13:23:37] INFO  |     ConvNeXt-tiny | stem=conv | drop_path=0.1
+[13:23:37] INFO  |       input            : 3 x 32 x 32
+[13:23:37] INFO  |       stage 1          : 32 x 32 x 96   | blocks=3
+[13:23:37] INFO  |       stage 2          : 16 x 16 x 192  | blocks=3
+[13:23:37] INFO  |       stage 3          :  8 x  8 x 384  | blocks=9
+[13:23:37] INFO  |       stage 4          :  4 x  4 x 768  | blocks=3
+[13:23:37] INFO  |       head             : global average pool -> Linear(768 -> 10)
+[13:23:37] INFO  | [model] 总参数量 = 27.83 M
+[13:23:37] INFO  | [evaluate] 已载入权重（训练时 epoch = 1）
+[13:23:46] INFO  | [test] loss=2.0936 | Top-1 = 25.73% | Top-5 = 78.35% | 样本数 = 10000 | TTA = False
+[13:23:54] INFO  | 逐类准确率（测试集）：
+[13:23:54] INFO  |     airplane   :  29.20%  (支撑样本 1000 张)
+[13:23:54] INFO  |     automobile :  26.80%  (支撑样本 1000 张)
+[13:23:54] INFO  |     bird       :   7.20%  (支撑样本 1000 张)
+[13:23:54] INFO  |     cat        :   5.00%  (支撑样本 1000 张)
+[13:23:54] INFO  |     deer       :  17.20%  (支撑样本 1000 张)
+[13:23:54] INFO  |     dog        :  17.10%  (支撑样本 1000 张)
+[13:23:54] INFO  |     frog       :  59.90%  (支撑样本 1000 张)
+[13:23:54] INFO  |     horse      :  16.50%  (支撑样本 1000 张)
+[13:23:54] INFO  |     ship       :  61.10%  (支撑样本 1000 张)
+[13:23:54] INFO  |     truck      :  17.30%  (支撑样本 1000 张)
+[13:23:54] INFO  | 宏平均（各类准确率均值）：25.73%
+[13:23:55] INFO  | [evaluate] 结果已保存：/content/convnext_cifar10/outputs/full_convnext_tiny_cifar10/metrics/eval_metrics.json
+[13:23:55] INFO  | [evaluate] 图表已保存：/content/convnext_cifar10/outputs/full_convnext_tiny_cifar10/figures
+[13:23:55] INFO  | ====================================================================================================
+[13:24:00] INFO  | ====================================================================================================
+[13:24:00] INFO  | [evaluate] 检查点：/content/convnext_cifar10/outputs/full_convnext_tiny_cifar10/models/best.pt
+[13:24:00] INFO  | [evaluate] 已从检查点恢复训练时的模型配置：preset=tiny | stem_mode=conv | drop_path=0.1
+[13:24:00] INFO  | [device] CUDA:0 | Tesla T4 | 显存 14.6 GB
+[13:24:00] INFO  | [data] CIFAR-10 缓存状态：已就绪（跳过下载与重复校验）
+[13:24:00] INFO  | [data] 加载 CIFAR-10 训练集底座（transform=None，目录 /content/convnext_cifar10/data）
+[13:24:00] INFO  | [data] 加载 CIFAR-10 测试集底座（transform=None，目录 /content/convnext_cifar10/data）
+[13:24:01] INFO  | [data] 数据集 划分完成 | 训练 45000 张 | 验证 5000 张 | 测试 10000 张 | 类别数 10
+[13:24:01] INFO  | [data] DataLoader | train batch=128 | eval batch=256 | num_workers=2 | pin_memory=True
+[13:24:01] INFO  |     ConvNeXt-tiny | stem=conv | drop_path=0.1
+[13:24:01] INFO  |       input            : 3 x 32 x 32
+[13:24:01] INFO  |       stage 1          : 32 x 32 x 96   | blocks=3
+[13:24:01] INFO  |       stage 2          : 16 x 16 x 192  | blocks=3
+[13:24:01] INFO  |       stage 3          :  8 x  8 x 384  | blocks=9
+[13:24:01] INFO  |       stage 4          :  4 x  4 x 768  | blocks=3
+[13:24:01] INFO  |       head             : global average pool -> Linear(768 -> 10)
+[13:24:01] INFO  | [model] 总参数量 = 27.83 M
+[13:24:02] INFO  | [evaluate] 已载入权重（训练时 epoch = 1）
+[13:24:02] INFO  | [test] 启用测试时增强 —— TTA views = ['identity', 'hflip'] (平均 softmax 概率)
+[13:24:18] INFO  | [test] loss=2.0936 | Top-1 = 25.84% | Top-5 = 78.28% | 样本数 = 10000 | TTA = True
+[13:24:34] INFO  | 逐类准确率（测试集）：
+[13:24:34] INFO  |     airplane   :  29.20%  (支撑样本 1000 张)
+[13:24:34] INFO  |     automobile :  27.10%  (支撑样本 1000 张)
+[13:24:34] INFO  |     bird       :   7.40%  (支撑样本 1000 张)
+[13:24:34] INFO  |     cat        :   4.60%  (支撑样本 1000 张)
+[13:24:34] INFO  |     deer       :  17.10%  (支撑样本 1000 张)
+[13:24:34] INFO  |     dog        :  17.40%  (支撑样本 1000 张)
+[13:24:34] INFO  |     frog       :  59.90%  (支撑样本 1000 张)
+[13:24:34] INFO  |     horse      :  16.80%  (支撑样本 1000 张)
+[13:24:34] INFO  |     ship       :  61.30%  (支撑样本 1000 张)
+[13:24:34] INFO  |     truck      :  17.60%  (支撑样本 1000 张)
+[13:24:34] INFO  | 宏平均（各类准确率均值）：25.84%
+[13:24:35] INFO  | [evaluate] 结果已保存：/content/convnext_cifar10/outputs/full_convnext_tiny_cifar10/metrics/eval_metrics.json
+[13:24:35] INFO  | [evaluate] 图表已保存：/content/convnext_cifar10/outputs/full_convnext_tiny_cifar10/figures
+[13:24:35] INFO  | ====================================================================================================
