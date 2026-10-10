@@ -10,8 +10,8 @@
 
 | 文件 | 大小 | 说明 |
 |---|---|---|
-| `AIassign2_Report_ConvNeXt_CIFAR10.docx` | 544 KB | **正式交付件（Word）**：20 页、约 7,300 词、13 张表、4 张图，目录（TOC）域已由 Word 更新填充 |
-| `AIassign2_Report_ConvNeXt_CIFAR10.pdf` | 851 KB | 同一内容的 **PDF 版本**（提交允许 Word 或 PDF，二者任选其一） |
+| `Assignment2_Report_CHAOWENJIE_UC325315.docx` | 544 KB | **正式交付件（Word）**：20 页、约 7,300 词、13 张表、4 张图，目录（TOC）域已由 Word 更新填充 |
+| `Assignment2_Report_CHAOWENJIE_UC325315.pdf` | 851 KB | 同一内容的 **PDF 版本**（提交允许 Word 或 PDF，二者任选其一） |
 | `report_builder/build_report.js` | 59 KB | 早期生成脚本（docx-js）：**已与当前 docx 不同步**——封面精简、去 AI 化改写、公式排版、附录删减等后续修改均直接在 docx 上完成，未回写该脚本 |
 
 > 报告语言为**英文**（作业要求 **CON-5**），排版规格：US Letter、1 英寸页边距、Arial 正文 11 pt，
@@ -73,11 +73,11 @@ cd 06_report/report_builder
 npm install docx                     # 首次需要（约 10 MB）
 
 # 1) 修改脚本中的内容（如作者姓名、仓库链接、指标数值），然后重建 .docx
-node build_report.js                 # 输出到 ../AIassign2_Report_ConvNeXt_CIFAR10.docx
+node build_report.js                 # 输出到 ../Assignment2_Report_CHAOWENJIE_UC325315.docx
 
 # 2) 校验 OOXML（需 pip install defusedxml lxml）
 set PYTHONUTF8=1
-python "%USERPROFILE%\.codebuddy\plugins\marketplaces\codebuddy-plugins-official\plugins\docx\scripts\office\validate.py" ../AIassign2_Report_ConvNeXt_CIFAR10.docx
+python "%USERPROFILE%\.codebuddy\plugins\marketplaces\codebuddy-plugins-official\plugins\docx\scripts\office\validate.py" ../Assignment2_Report_CHAOWENJIE_UC325315.docx
 
 # 3) 用本机 MS Word 更新目录并导出 PDF（也可直接在 Word 中"另存为 PDF"）
 ```

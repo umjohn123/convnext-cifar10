@@ -24,7 +24,7 @@ const {
 // --------------------------------------------------------------------------- //
 const ROOT = "d:/Document/workbuddy-ai/CISC3024PRAI/Assignment2";
 const FIG = path.join(ROOT, "05_results/full_convnext_tiny_cifar10/figures");
-const OUT = path.join(ROOT, "06_report/AIassign2_Report_ConvNeXt_CIFAR10.docx");
+const OUT = path.join(ROOT, "06_report/Assignment2_Report_CHAOWENJIE_UC325315.docx");
 
 // --------------------------------------------------------------------------- //
 // Layout constants (US Letter, 1 inch margins -> content width 9360 DXA)
