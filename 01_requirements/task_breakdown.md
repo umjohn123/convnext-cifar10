@@ -2,8 +2,8 @@
 
 > 说明：本文件为**唯一交付物**（任务拆解总表），不含其他独立文件。
 > 本次作业主题为 **AIassign2**：作业文件为 `AIassign2.pdf`，其正文标题为 **AI Assignment #1**，本拆解参照该正文的要求编写。
-> 根目录记为 `AIassign2/`（对应当前工作区 `Assignment2` 根目录），其下含 `01_requirements`、`02_ai_chats`、`03_code`、`04_data`、`05_results`、`06_report`、`07_submission` 七个子目录。
-> **这七个子目录均为"内部归档"**（用于留存过程证据与组织材料）；UMMoodle 唯一必交项为 `06_report/` 的报告（须内嵌源码链接）。`02_ai_chats/` 的处理规范与同类目录引用问题的排查方法见 `requirement_summary.md` §6.1–§6.3。
+> 根目录记为 `AIassign2/`（对应当前工作区 `Assignment2` 根目录），其下含 `01_requirements`、`02_ai_chats`、`03_code`、`04_data`、`05_results`、`06_report` 六个子目录。
+> **这六个子目录均为"内部归档"**（用于留存过程证据与组织材料）；UMMoodle 唯一必交项为 `06_report/` 的报告（须内嵌源码链接）。`02_ai_chats/` 的处理规范与同类目录引用问题的排查方法见 `requirement_summary.md` §6.1–§6.3。
 > 本文件归入 `01_requirements/`，与作业要求、评分标准同目录。
 
 ---
@@ -57,7 +57,7 @@
 | T7 | 结果可视化与图表整理 | T6 | `05_results/` |
 | T8 | 撰写英文报告 | T1, T3, T4, T5, T6, T7 | `06_report/` |
 | T9 | 报告定稿与 PDF 导出 | T8 | `06_report/` |
-| T10 | 提交材料整理 | T4, T9 | `07_submission/` |
+| T10 | 提交材料整理 | T4, T9 | 本地留存（不入库） |
 
 > 说明：表中"产物归属目录"均为**内部归档位置**（用于留存过程证据与组织材料），并非提交项；UMMoodle 唯一必交项为 `06_report/` 的报告（含 §6 源码链接）。`02_ai_chats/` 的处理规范与同类目录引用问题的排查方法见 `requirement_summary.md` §6.2–§6.3。
 
@@ -136,9 +136,9 @@
 - **目标**：整理 UMMoodle 提交所需全部材料，核对"不自己写代码"约束与源码链接可访问性。
 - **目录引用一致性检查**：按 `requirement_summary.md` §6.3 扫描全部文档中的目录路径引用（如 `02_ai_chats/`），确认不存在"把内部归档当作提交交付物"的表述。
 - **输入**：T4 的源码链接、T9 的报告定稿。
-- **输出**：`07_submission/` 下提交清单（`submission_checklist.md`）与待提交文件副本。
+- **输出**：本地留存的提交清单（`submission_checklist.md`）与待提交文件副本（不入库）。
 - **前置依赖**：T4、T9。
-- **产物归属目录**：`07_submission/`。
+- **产物归属目录**：本地留存（不入库）。
 
 ---
 

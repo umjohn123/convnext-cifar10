@@ -573,7 +573,6 @@ CONTENT.push(
     ["`05_results/_failed_runs/`", "The fp16 run: its metrics, its diagnosis and the evidence (loss-scale and optimiser state)", "Sections 3.5 and 4.6"],
     ["`05_results/mvp_atto_subset5k/`", "CPU baseline run (test Top-1 45.05 %)", "Section 4.7"],
     ["`06_report/`", "This report (Word and PDF)", "—"],
-    ["`07_submission/`", "Similarity and compliance checks for submission", "—"],
   ], [2600, 4860, 1900]),
 
   h1NoBreak("Appendix B — Reproduction Commands"),

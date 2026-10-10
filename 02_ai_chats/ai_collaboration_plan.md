@@ -202,7 +202,7 @@
 |---|---|
 | 托管后的源码工程 + `source_link.txt` | `03_code/` |
 | 报告草稿与最终稿（`report_draft` / `report_final.pdf`） | `06_report/` |
-| `submission_checklist.md` 与待提交副本 | `07_submission/` |
+| `submission_checklist.md` 与待提交副本 | 本地留存（不入库） |
 | `I4_finalization_chat.md`、`I4_summary.md` | `02_ai_chats/` |
 
 **退出标准（DoD-I4）**：满足 `01_requirements/task_description.md` 中 **AC-1～AC-9** 全部验收标准与 DoD。
@@ -219,7 +219,6 @@
 | `04_data/` | 小数据集（I0）→ 数据说明与预处理（I1） |
 | `05_results/` | 指标、日志、模型（I0/I1）→ 对比消融图表（I2）→ 多种子结果（I3） |
 | `06_report/` | 报告骨架（I0）→ 各节内容（I1–I3）→ 定稿与 PDF（I4） |
-| `07_submission/` | 提交清单与待提交副本（I4） |
 
 ---
 

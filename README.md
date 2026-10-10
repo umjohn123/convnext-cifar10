@@ -26,7 +26,6 @@ gradient-scaler loss scale, which is discussed in the report (Section 4.6).
 | `04_data/` | Dataset description, split index files and download instructions |
 | `05_results/` | Every experiment with its figures, logs, metrics and README |
 | `06_report/` | The final report, in Word and PDF |
-| `07_submission/` | Submission notes and compliance checklist |
 
 ## How to run
 
