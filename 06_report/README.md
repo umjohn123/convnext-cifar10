@@ -60,7 +60,6 @@
 | 1 | 填写**姓名与学号** | 报告第 1 页 "Author" 行 | ✅ 已完成：`<Chao Wen Jie > (<UC325315>)` |
 | 2 | 替换**源码仓库链接** | 报告 §6 | ✅ 已完成：https://github.com/umjohn123/convnext-cifar10（PDF 中为可点击链接） |
 | 3 | 更新目录 | 报告第 2 页 | ✅ 已完成：目录域已刷新，页码与正文一致 |
-| 4 | Turnitin 自查与提交 | `07_submission/` | 作业要求经 UMMoodle 提交并通过相似度检测 |
 
 ---
 
